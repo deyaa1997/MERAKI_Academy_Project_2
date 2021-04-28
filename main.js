@@ -1,10 +1,10 @@
 const key = [
-    "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
-    "ASUS ROG Strix GeForce RTX 3070 8GB GDDR6 OC Edition",
-    "MSI GF65 Thin NEW 10Gen Core i7 6-Cores w/ GTX 1660TI 144Hz",
-    "HyperX Alloy Origins 60 Mechanical Gaming Keyboard",
-    "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
-  ];
+  "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
+  "ASUS ROG Strix GeForce RTX 3070 8GB GDDR6 OC Edition",
+  "MSI GF65 Thin NEW 10Gen Core i7 6-Cores w/ GTX 1660TI 144Hz",
+  "HyperX Alloy Origins 60 Mechanical Gaming Keyboard",
+  "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
+];
 const addSpecial = () => {
   const special = [
     "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
@@ -141,15 +141,50 @@ const addComing = () => {
   }
 };
 
+const search = function () {
+  const arr = [];
+  const ind = [];
+  key.forEach((elem, index) => {
+    if (
+      elem.toLowerCase().search($(".insearch").val().toLowerCase()) >= 0) {
+      console.log($(".insearch").val());
+      arr.push(elem);
+      ind.push(index);
+    }
 
+  });
+  $("#content").hide();
+  const main = $("#main");
+  const div = $("<div></div>");
+  div.addClass("searchBar");
+  const result = $("<h1></h1>");
+  result.html("The Result Search Is :-");
+  div.append(result);
+  const divRes = $("<div></div>");
+  divRes.addClass("results");
+  const divImg = $("<div></div>");
+  divImg.addClass("sortImg")
+  ind.forEach((elem) => {
+    const img = $("<img>");
+    img.addClass("img1");
+    if (elem === 4) {
+      img.attr("src", "images/" + elem + ".jpeg");
+    } else {
+      img.attr("src", "images/" + elem + ".jpg");
+    }
+    divImg.append(img)
 
-const search = function() {
-    const arr =[]
-    key.forEach((elem,index) =>{
-        if (elem.search(($(".insearch").val()).toLowerCase()) >= 0 || elem.search(($(".insearch").val()).toUpperCase()) >= 0){
-            console.log($(".insearch").val())
-            console.log(1)
-            arr.push(elem);}
-    })
-    console.log(arr);
-}
+  });
+  const divP = $("<div></div>");
+  divP.addClass("sortP")
+  arr.forEach((elem) => {
+    const p = $("<p></p>");
+    p.text(elem);
+    p.addClass("p1");
+    divP.append(p);
+  });
+  divRes.append(divImg)
+  divRes.append(divP)
+  div.append(divRes)
+  main.append(div)
+};

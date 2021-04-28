@@ -159,3 +159,42 @@
   font: weight 800px;
 }
 
+.searchBar{
+  display: grid;
+  justify-content: start;
+
+}
+
+.results{
+  display: flex;
+  justify-content: start;
+  gap: 40px;
+}
+
+.sortImg{
+  display: grid;
+  justify-content: space-around;
+
+
+}
+
+.sortP{
+  display: grid;
+  justify-content: space-around;
+
+}
+
+.img1{
+  width: 180px;
+  height: 140px;
+
+}
+
+
+.p1{
+  margin-top: 55px;
+  font-size: 20px;
+  font: weight 800px;
+
+
+}
