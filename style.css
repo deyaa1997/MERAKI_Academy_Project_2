@@ -175,16 +175,16 @@
   font: weight 800px;
 }
 
-.aboutH{
-  color: rgb(51,51,51);
+.aboutH {
+  color: rgb(51, 51, 51);
 }
 
-.aboutP{
-  color:  rgb(0,0,0);
+.aboutP {
+  color: rgb(0, 0, 0);
   line-height: 1.6;
 }
 
-.btn1{
+.btn1 {
   width: 32%;
   height: 100%;
   border: none;
@@ -193,5 +193,11 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  cursor:pointer;
+  cursor: pointer;
+}
+
+.contactDiv{
+  margin-top: 40px;
+  margin-left: 40px;
+  display: grid;
 }

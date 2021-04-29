@@ -152,7 +152,8 @@ const search = function () {
     }
   });
   $("#content").html("");
-  $("#content").css("height" , "200px")
+  $("#content").show();
+  $("#content").css("height", "200px");
   const main = $("#main");
   const div = $("<div></div>");
   div.addClass("searchBar");
@@ -187,56 +188,100 @@ const search = function () {
   $("#content").append(div);
 };
 
-const about = () =>{
-    $(".btn1").css("cursor", "not-allowed")
-    $(".btn1").attr("onclick" , "");
-    $("#content").hide();
-    const main = $("#main");
-    const div = $("<div></div>");
-    const about = $("<h1></h1>")
-    about.html("About Us")
-    about.css("color" , "rgb(177,22,22)")
-    div.append(about)
+const about = () => {
+  $(".btn1").css("cursor", "not-allowed");
+  $(".btn1").attr("onclick", "");
+  $("#content").html("");
+  const main = $("#main");
+  const div = $("<div></div>");
+  const about = $("<h1></h1>");
+  about.html("About Us");
+  about.css("color", "rgb(177,22,22)");
+  div.append(about);
 
-    const Overview = $("<h1></h1>")
-    Overview.html("Overview")
-    Overview.addClass("aboutH")
-    div.append(Overview)
+  const Overview = $("<h1></h1>");
+  Overview.html("Overview");
+  Overview.addClass("aboutH");
+  div.append(Overview);
 
-    const p = $("<p></p>")
-    p.html("Founded in 2000, The Eagle is one of the largest IT distributors in the market. the company has been recognized by numerous publications as a preeminent global distributor of computer components. The Eagle specializes in offering a complete selection of memory, storage products and other hardware and software components for PCs and servers, and consumer electronics. We are committed to providing best-in-class services and value to over 4,000 active customers, including VARs, System Integrators, OEMs, and the Government and Education sectors.")
-    p.addClass("aboutP")
-    div.append(p)
+  const p = $("<p></p>");
+  p.html(
+    "Founded in 2000, The Eagle is one of the largest IT distributors in the market. the company has been recognized by numerous publications as a preeminent global distributor of computer components. The Eagle specializes in offering a complete selection of memory, storage products and other hardware and software components for PCs and servers, and consumer electronics. We are committed to providing best-in-class services and value to over 4,000 active customers, including VARs, System Integrators, OEMs, and the Government and Education sectors."
+  );
+  p.addClass("aboutP");
+  div.append(p);
 
-    const Products = $("<h2></h2>")
-    Products.html("Products")
-    Products.addClass("aboutH")
-    div.append(Products)
+  const Products = $("<h2></h2>");
+  Products.html("Products");
+  Products.addClass("aboutH");
+  div.append(Products);
 
-    const p1 = $("<p></p>")
-    p1.html("We endeavor to provide complete solutions to satisfy every customer's needs. We carry a comprehensive range of inventory including CPUs, Storage Devices, Notebooks, Motherboards, Graphics Cards, Displays, Wireless Networking, Cases, Consumer Electronics, Software and more. City Center is proud to be the leading authorized reseller for top brands such as Acer, ASUS, GIGABYTE, LG, Logitech, Microsoft, MSI, NVIDIA, Samsung, Super Talent, Toshiba and Western Digital.")
-    p1.addClass("aboutP")
-    div.append(p1)
+  const p1 = $("<p></p>");
+  p1.html(
+    "We endeavor to provide complete solutions to satisfy every customer's needs. We carry a comprehensive range of inventory including CPUs, Storage Devices, Notebooks, Motherboards, Graphics Cards, Displays, Wireless Networking, Cases, Consumer Electronics, Software and more. City Center is proud to be the leading authorized reseller for top brands such as Acer, ASUS, GIGABYTE, LG, Logitech, Microsoft, MSI, NVIDIA, Samsung, Super Talent, Toshiba and Western Digital."
+  );
+  p1.addClass("aboutP");
+  div.append(p1);
 
-    const CustomerService = $("<h2></h2>")
-    CustomerService.html("Customer Service")
-    CustomerService.addClass("aboutH")
-    div.append(CustomerService)
+  const CustomerService = $("<h2></h2>");
+  CustomerService.html("Customer Service");
+  CustomerService.addClass("aboutH");
+  div.append(CustomerService);
 
-    const p2 = $("<p></p>")
-    p2.html("Our dedicated customer service representatives are always ready to assist you with prompt responses to all your RMA inquiries .Our philosophy is to provide complete satisfaction to our customers.")
-    p2.addClass("aboutP")
-    div.append(p2)
+  const p2 = $("<p></p>");
+  p2.html(
+    "Our dedicated customer service representatives are always ready to assist you with prompt responses to all your RMA inquiries .Our philosophy is to provide complete satisfaction to our customers."
+  );
+  p2.addClass("aboutP");
+  div.append(p2);
 
-    const TechnicalSupport = $("<h2></h2>")
-    TechnicalSupport.html("Technical Support")
-    TechnicalSupport.addClass("aboutH")
-    div.append(TechnicalSupport)
+  const TechnicalSupport = $("<h2></h2>");
+  TechnicalSupport.html("Technical Support");
+  TechnicalSupport.addClass("aboutH");
+  div.append(TechnicalSupport);
 
-    const p3 = $("<p></p>")
-    p3.html("Our technical support team provides customers with an extensive suite of services including component level troubleshooting, system restoration, software/hardware installation and device functionality verification. Our aim is to provide customers with rapid and reliable assistance.")
-    p3.addClass("aboutP")
-    div.append(p3)
-    main.append(div)
+  const p3 = $("<p></p>");
+  p3.html(
+    "Our technical support team provides customers with an extensive suite of services including component level troubleshooting, system restoration, software/hardware installation and device functionality verification. Our aim is to provide customers with rapid and reliable assistance."
+  );
+  p3.addClass("aboutP");
+  div.append(p3);
+  $("#content").css({"height" :"500px" })
+  $("#content").append(div);
+};
 
+const contact = () => {
+  $("#content").html("")
+  $("#content").css({"height": "200px" , "gap" :"200px"});
+  const div = $("<div></div>")
+  div.addClass("contactDiv")
+  const h1 = $("<h1></h1>")
+  h1.css("color", "rgb(177,22,22)")
+  h1.text("For Contact Us :-")
+  const h2 = $("<h2></h2>")
+  h2.css({"color":"rgba(177,22,22,0.8)" , "margin-left": "20px"})
+  h2.text("Tel :-")
+  const h3 = $("<h2></h2>")
+  h3.text("078-66-8-77-48")
+  h3.css({"color": "rgba(0, 0, 0,0.7)" , "margin-left": "70px"})
+  const h4 = $("<h2></h2>")
+  h4.text("E-mail :-")
+  h4.css({"color":"rgba(177,22,22,0.8)" , "margin-left": "20px"})
+  const h5 = $("<h2></h2>")
+  h5.text("deyah.mosa@hotmail.com")
+  h5.css({"color": "rgba(0, 0, 0,0.7)" , "margin-left": "70px"})
+  const h6 = $("<h2></h2>")
+  h6.text("Location :-")
+  h6.css({"color":"rgba(177,22,22,0.8)" , "margin-left": "20px"})
+  const h7 = $("<h2></h2>")
+  h7.text("Amman - Jordan")
+  h7.css({"color": "rgba(0, 0, 0,0.7)" , "margin-left": "70px"})
+  div.append(h1)
+  div.append(h2)
+  div.append(h3)
+  div.append(h4)
+  div.append(h5)
+  div.append(h6)
+  div.append(h7)
+  $("#content").append(div)
 }
