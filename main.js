@@ -28,6 +28,10 @@ const arr = []
 const key = arr.concat(cpu,gpu,laptop,keyboard)
 console.log(key)
 
+const disc = () => {
+  $("#content").html("")
+}
+
 const addSpecial = () => {
   const special = [
     "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
@@ -50,11 +54,17 @@ const addSpecial = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
+    img.on("click" , () => disc())
+    img.css("cursor" , "pointer")
     div.append(img);
     const p = $("<p></p>");
     p.text(special[x]);
     p.addClass("p");
-    div.append(p);
+    const btn = $("<button></button>")
+    btn.addClass("contentbtn")
+    btn.append(p)
+    div.append(btn);
+    btn.on("click" , () => disc())
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -212,8 +222,6 @@ const search = function () {
 };
 
 const about = () => {
-  $(".btn1").css("cursor", "not-allowed");
-  $(".btn1").attr("onclick", "");
   $("#content").html("");
   const main = $("#main");
   const div = $("<div></div>");
@@ -221,7 +229,6 @@ const about = () => {
   about.html("About Us");
   about.css("color", "rgb(177,22,22)");
   div.append(about);
-
   const Overview = $("<h1></h1>");
   Overview.html("Overview");
   Overview.addClass("aboutH");

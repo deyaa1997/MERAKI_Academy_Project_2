@@ -38,6 +38,14 @@
   margin-top: 17px;
 }
 
+
+.contentbtn{
+  background-color: white;
+  border-style: none;
+  font-family:'Times New Roman', Times, serif;
+  cursor: pointer;
+}
+
 #rightbtn {
   width: 32%;
   display: flex;
