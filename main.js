@@ -93,11 +93,17 @@ const addNew = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
+    img.on("click" , () => disc())
+    img.css("cursor" , "pointer")
     div.append(img);
     const p = $("<p></p>");
     p.text(special[x]);
     p.addClass("p");
-    div.append(p);
+    const btn = $("<button></button>")
+    btn.addClass("contentbtn")
+    btn.append(p)
+    div.append(btn);
+    btn.on("click" , () => disc())
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -131,7 +137,11 @@ const addBest = () => {
     const p = $("<p></p>");
     p.text(special[x]);
     p.addClass("p");
-    div.append(p);
+    const btn = $("<button></button>")
+    btn.addClass("contentbtn")
+    btn.append(p)
+    div.append(btn);
+    btn.on("click" , () => disc())
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -161,11 +171,17 @@ const addComing = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
+    img.on("click" , () => disc())
+    img.css("cursor" , "pointer")
     div.append(img);
     const p = $("<p></p>");
     p.text(special[x]);
     p.addClass("p");
-    div.append(p);
+    const btn = $("<button></button>")
+    btn.addClass("contentbtn")
+    btn.append(p)
+    div.append(btn);
+    btn.on("click" , () => disc())
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
