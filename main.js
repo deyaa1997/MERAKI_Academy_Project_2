@@ -188,7 +188,7 @@ const search = function () {
 
 const about = () =>{
     $(".btn1").css("cursor", "not-allowed")
-    $(".btn1").fadeOut()
+    $(".btn1").attr("onclick" , "");
     $("#content").hide();
     const main = $("#main");
     const div = $("<div></div>");
@@ -237,4 +237,5 @@ const about = () =>{
     p3.addClass("aboutP")
     div.append(p3)
     main.append(div)
+
 }
