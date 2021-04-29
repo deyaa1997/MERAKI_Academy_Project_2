@@ -30,6 +30,33 @@ console.log(key)
 
 const disc = () => {
   $("#content").html("")
+  $("#content").css("height" , "600px")
+  const arr = ["AMD's fastest 6-core processor for the main desktop, with 12 threads.",
+  "It can deliver an elite 100+ FPS performance in the world's most popular games."
+  ,"NOT Including Cooler",
+  "4.6 GHz Max Boost, Unlocked for Overclocking,"]
+  const div = $("<div></div>")
+  div.addClass("divdiv")
+  const h1 = $("<h1></h1>")
+  h1.html("AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray")
+  h1.addClass("Hdisc")
+  const  ul = $("<ul></ul>")
+  ul.addClass("ul")
+  for (let x=0 ; x<arr.length ; x++){
+    const  li = $("<li></li>")
+    li.addClass("li")
+    li.text(arr[x])
+    li.css("margin-bottom" , "40px")
+    ul.append(li)
+  }
+  const img = $("<img>")
+  img.attr("src" , "images/" + 0 + ".jpg")
+  img.css({"width" : "400px" , "height" : "330px" })
+  div.css({"display" : "grid" ,"gap" : "0px"  ,"align-content": "center",  })
+  div.append(h1)
+  div.append(ul)
+  div.append(img)
+  $("#content").append(div)
 }
 
 const addSpecial = () => {
@@ -133,6 +160,8 @@ const addBest = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
+    img.on("click" , () => disc())
+    img.css("cursor" , "pointer")
     div.append(img);
     const p = $("<p></p>");
     p.text(special[x]);
