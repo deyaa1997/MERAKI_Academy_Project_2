@@ -151,7 +151,8 @@ const search = function () {
       ind.push(index);
     }
   });
-  $("#content").hide();
+  $("#content").html("");
+  $("#content").css("height" , "200px")
   const main = $("#main");
   const div = $("<div></div>");
   div.addClass("searchBar");
@@ -183,7 +184,7 @@ const search = function () {
   divRes.append(divImg);
   divRes.append(divP);
   div.append(divRes);
-  main.append(div);
+  $("#content").append(div);
 };
 
 const about = () =>{
