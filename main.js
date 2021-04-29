@@ -1,11 +1,3 @@
-const key = [
-  "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
-  "ASUS ROG Strix GeForce RTX 3070 8GB GDDR6 OC Edition",
-  "MSI GF65 Thin NEW 10Gen Core i7 6-Cores w/ GTX 1660TI 144Hz",
-  "HyperX Alloy Origins 60 Mechanical Gaming Keyboard",
-  "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
-];
-
 const cpu = [
   "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
   "AMD RYZEN 5 3600 6-Core 3.6 GHz (4.2 GHz Max Boost)",
@@ -32,6 +24,9 @@ const keyboard =[
   "Redragon K530 RGB 61 Keys USB-C & Bluetooth White",
   "Razer Huntsman Mini 60% Linear Optical Switches White"
 ]
+const arr = []
+const key = arr.concat(cpu,gpu,laptop,keyboard)
+console.log(key)
 
 const addSpecial = () => {
   const special = [
