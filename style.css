@@ -32,6 +32,8 @@
   height: 78%;
   cursor: pointer;
   border: none;
+  border-radius: 10px;
+  border-style: ridge;
 }
 
 .btnsearch:hover {
@@ -49,6 +51,7 @@
   width: 240px;
   margin-right: 94px;
   height: 80px;
+  border-radius: 10px;
 }
 
 .contentbtn {
@@ -77,6 +80,8 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 10px;
+  border-style: ridge;
 }
 
 .btn:hover {
@@ -230,6 +235,8 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 10px;
+  border-style: ridge;
 }
 
 .contactDiv {
@@ -262,4 +269,65 @@
   top: 260px;
   display: grid;
   justify-items: center;
+}
+
+.list{
+  margin-bottom: 40px;
+  border-style: groove;
+  border-top-style: none;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn2{
+  width: 180px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+@keyframes example {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.cpubtn{
+  opacity: 1;
+  animation-name:example ;
+  animation-duration: 3s;
+  border-style: ridge;
+  border-color: rgb(230, 230, 230);
+  cursor: pointer;
+}
+
+.gpubtn{
+  opacity: 1;
+  animation-name:example ;
+  animation-duration: 3s;
+  border-style: ridge;
+  border-color: rgb(230, 230, 230);
+  cursor: pointer;
+}
+
+.laptopbtn{
+  opacity: 1;
+  animation-name:example ;
+  animation-duration: 6s;
+  border-style: ridge;
+  border-color: rgb(230, 230, 230);
+  cursor: pointer;
+}
+
+.keyboardbtn{
+  opacity: 1;
+  animation-name:example ;
+  animation-duration: 6s;
+  border-color: rgb(230, 230, 230);
+  border-style: ridge;
+  cursor: pointer;
+}
+
+.btn2:hover {
+  border-style: solid;
 }

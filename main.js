@@ -132,8 +132,11 @@ const addSpecial = () => {
   ];
   for (let x = 0 ; x < 5 ; x++){
     let ind = Math.ceil(Math.random()*15)
-    if (special.includes(ind) === false )
+    if (special.includes(ind) === false ){
     special.push(key[ind] , ind)
+  }else{
+    x--;
+  }
   }
   const spec = $(".special");
   for (let x = 0; x <=8; x+=2) {
