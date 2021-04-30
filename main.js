@@ -615,3 +615,42 @@ const funLaptop = () =>{
     $("#content").append(div1)
     $(".h1header").on("click", () => home());
 }
+
+const funKeyboard = () =>{
+  $("#content").html("");
+  $("#content").css({ height: "200px", gap: "50px" });
+  const header = $("<h1></h1>")
+  header.addClass("h")
+  header.text("CPU & Processor")
+  const div1 = $("<div></div>")
+  div1.addClass("special")
+  for(let x = 12 ; x <= 15 ; x++){
+      const div = $("<div></div>");
+      div.addClass("s");
+      const img = $("<img>");
+      img.addClass("img");
+      if (x === 15 ) {
+        div.css("border-right", "hidden");
+      } 
+      img.attr("src", "key img/" + x + ".jpg");
+      img.on("click", () => disc(x));
+      img.css("cursor", "pointer");
+      div.append(img);
+      const p = $("<p></p>");
+      p.text(key[x]);
+      p.addClass("p");
+      const btn = $("<button></button>");
+      btn.addClass("contentbtn");
+      btn.append(p);
+      div.append(btn);
+      btn.on("click", () => disc(x));
+      const price = $("<h2></h2>");
+      price.addClass("pr");
+      price.text(pricearr[x] + " JOD");
+      div.append(price);
+      div1.append(div);
+    }
+    $("#content").append(header)
+    $("#content").append(div1)
+    $(".h1header").on("click", () => home());
+}
