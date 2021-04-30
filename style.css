@@ -209,3 +209,17 @@
   margin-left: 40px;
   display: grid;
 }
+
+.divdiv{
+  margin-top: 30px;
+  margin-left: 60px;
+
+}
+
+.im {
+  filter: blur(2px)
+}
+.im:hover{
+  zoom: 1.4;
+  filter: none;
+}
