@@ -28,6 +28,47 @@ const arr = []
 const key = arr.concat(cpu,gpu,laptop,keyboard)
 console.log(key)
 
+const home = () => {
+  $("#content").html("");
+  $("#content").css({ "gap" :"30px"});
+  const h1 = $("<h1></h1>")
+  h1.addClass("h")
+  h1.text("-Special Products-")
+  const div1 = $("<div></div>")
+  div1.addClass("special")
+  const fun1 = $("<script>addSpecial()</script>")
+  div1.append(fun1)
+  $("#content").append(h1)
+  $("#content").append(div1)
+  const h2 = $("<h1></h1>")
+  h2.addClass("h")
+  h2.text("-New Products-")
+  const div2 = $("<div></div>")
+  div2.addClass("new")
+  const fun2 = $("<script>addNew()</script>")
+  div2.append(fun2)
+  $("#content").append(h2)
+  $("#content").append(div2)
+  const h3 = $("<h1></h1>")
+  h3.addClass("h")
+  h3.text("-Best reviews-")
+  const div3 = $("<div></div>")
+  div3.addClass("best")
+  const fun3 = $("<script>addBest()</script>")
+  div3.append(fun3)
+  $("#content").append(h3)
+  $("#content").append(div3)
+  const h4 = $("<h1></h1>")
+  h4.addClass("h")
+  h4.text("-Coming Soon-")
+  const div4 = $("<div></div>")
+  div4.addClass("coming")
+  const fun4 = $("<script>addComing()</script>")
+  div4.append(fun4)
+  $("#content").append(h4)
+  $("#content").append(div4)
+}
+
 const disc = () => {
   $("#content").html("")
   $("#content").css("height" , "600px")
@@ -70,6 +111,7 @@ const disc = () => {
   divRight.append(price)
   divRight.append(value)
   $("#content").append(divRight)
+  $(".h1header").on("click" , ()=> home())
 }
 
 const addSpecial = () => {
@@ -81,7 +123,7 @@ const addSpecial = () => {
     "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
   ];
   const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
-  const spec = $("#special");
+  const spec = $(".special");
   for (let x = 0; x < 5; x++) {
     const div = $("<div></div>");
     div.addClass("s");
@@ -121,7 +163,7 @@ const addNew = () => {
     "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
   ];
   const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
-  const New = $("#new");
+  const New = $(".new");
   for (let x = 0; x < 5; x++) {
     const div = $("<div></div>");
     div.addClass("s");
@@ -161,7 +203,7 @@ const addBest = () => {
     "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
   ];
   const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
-  const best = $("#best");
+  const best = $(".best");
   for (let x = 0; x < 5; x++) {
     const div = $("<div></div>");
     div.addClass("s");
@@ -201,7 +243,7 @@ const addComing = () => {
     "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
   ];
   const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
-  const coming = $("#coming");
+  const coming = $(".coming");
   for (let x = 0; x < 5; x++) {
     const div = $("<div></div>");
     div.addClass("s");
@@ -277,6 +319,7 @@ const search = function () {
   divRes.append(divP);
   div.append(divRes);
   $("#content").append(div);
+  $(".h1header").on("click" , ()=> home())
 };
 
 const about = () => {
@@ -337,6 +380,7 @@ const about = () => {
   div.css("margin" , "35px")
   $("#content").css({"height" :"500px" })
   $("#content").append(div);
+  $(".h1header").on("click" , ()=> home())
 };
 
 const contact = () => {
@@ -373,4 +417,5 @@ const contact = () => {
   div.append(h6)
   div.append(h7)
   $("#content").append(div)
+  $(".h1header").on("click" , ()=> home())
 }
