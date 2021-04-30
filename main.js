@@ -305,6 +305,8 @@ const search = function () {
     } else {
       img.attr("src", "key img/" + elem + ".jpg");
     }
+    img.on("click" , () => disc())
+    img.css("cursor" , "pointer")
     divImg.append(img);
   });
   const divP = $("<div></div>");
@@ -313,6 +315,8 @@ const search = function () {
     const p = $("<p></p>");
     p.text(elem);
     p.addClass("p1");
+    p.on("click" , () => disc())
+    p.css("cursor" , "pointer")
     divP.append(p);
   });
   divRes.append(divImg);

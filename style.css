@@ -177,11 +177,13 @@
 .sortImg {
   display: grid;
   justify-content: space-around;
+  gap: 50px;
 }
 
 .sortP {
   display: grid;
   justify-content: space-around;
+  gap: 50px;
 }
 
 .img1 {
