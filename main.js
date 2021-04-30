@@ -3,116 +3,129 @@ const cpu = [
   "AMD RYZEN 5 3600 6-Core 3.6 GHz (4.2 GHz Max Boost)",
   "Intel Core i5-10400F Comet Lake 6-Cores up to 4.3 GHz 12MB",
   "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
-]
-const gpu =[
+];
+const gpu = [
   "ASUS ROG Strix GeForce RTX 3070 8GB GDDR6 OC Edition",
   "MSI GeForce RTX 3080 SUPRIM X 10G 10GB 320-Bit GDDR6X Video Card",
   "ASUS ROG Strix GeForce RTX 3060 OC Edition 12GB GDDR6",
   "ASUS ROG Strix GeForce GTX 1660 Super OC Edition 6GB Gaming",
-]
+];
 
-const laptop =[
+const laptop = [
   "MSI GF65 Thin NEW 10Gen Core i7 6-Cores w/ GTX 1660TI 144Hz",
   "HP Gaming Pavilion 15-dk1020ne 10Gen I7 w/ GTX 1660 TI",
   "Lenovo NEW ThinkPad L15 Gen1 AMD Ryzen 7 PRO Laptop",
   "HP Laptop 15-dw3046ne NEW Intel 11th Gen Core i5 - Black",
-]
+];
 
-const keyboard =[
+const keyboard = [
   "HyperX Alloy Origins 60 Mechanical Gaming Keyboard",
   "Razer Huntsman V2 Analog Optical Switches RGB Chroma",
   "Redragon K530 RGB 61 Keys USB-C & Bluetooth White",
   "Razer Huntsman Mini 60% Linear Optical Switches White",
-]
-const arr = []
-const key = arr.concat(cpu,gpu,laptop,keyboard)
-console.log(key)
+];
+const arr = [];
+const key = arr.concat(cpu, gpu, laptop, keyboard);
+console.log(key);
+const pricearr = [300 , 180 , 145 , 360 , 1200 , 1500 , 850 , 340 , 975 ,999,
+999, 529 ,69 , 189 ,39,99 ]
 
 const home = () => {
   $("#content").html("");
-  $("#content").css({ "gap" :"30px"});
-  const h1 = $("<h1></h1>")
-  h1.addClass("h")
-  h1.text("-Special Products-")
-  const div1 = $("<div></div>")
-  div1.addClass("special")
-  const fun1 = $("<script>addSpecial()</script>")
-  div1.append(fun1)
-  $("#content").append(h1)
-  $("#content").append(div1)
-  const h2 = $("<h1></h1>")
-  h2.addClass("h")
-  h2.text("-New Products-")
-  const div2 = $("<div></div>")
-  div2.addClass("new")
-  const fun2 = $("<script>addNew()</script>")
-  div2.append(fun2)
-  $("#content").append(h2)
-  $("#content").append(div2)
-  const h3 = $("<h1></h1>")
-  h3.addClass("h")
-  h3.text("-Best reviews-")
-  const div3 = $("<div></div>")
-  div3.addClass("best")
-  const fun3 = $("<script>addBest()</script>")
-  div3.append(fun3)
-  $("#content").append(h3)
-  $("#content").append(div3)
-  const h4 = $("<h1></h1>")
-  h4.addClass("h")
-  h4.text("-Coming Soon-")
-  const div4 = $("<div></div>")
-  div4.addClass("coming")
-  const fun4 = $("<script>addComing()</script>")
-  div4.append(fun4)
-  $("#content").append(h4)
-  $("#content").append(div4)
-}
+  $("#content").css({ gap: "30px" });
+  const h1 = $("<h1></h1>");
+  h1.addClass("h");
+  h1.text("-Special Products-");
+  const div1 = $("<div></div>");
+  div1.addClass("special");
+  const fun1 = $("<script>addSpecial()</script>");
+  div1.append(fun1);
+  $("#content").append(h1);
+  $("#content").append(div1);
+  const h2 = $("<h1></h1>");
+  h2.addClass("h");
+  h2.text("-New Products-");
+  const div2 = $("<div></div>");
+  div2.addClass("new");
+  const fun2 = $("<script>addNew()</script>");
+  div2.append(fun2);
+  $("#content").append(h2);
+  $("#content").append(div2);
+  const h3 = $("<h1></h1>");
+  h3.addClass("h");
+  h3.text("-Best reviews-");
+  const div3 = $("<div></div>");
+  div3.addClass("best");
+  const fun3 = $("<script>addBest()</script>");
+  div3.append(fun3);
+  $("#content").append(h3);
+  $("#content").append(div3);
+  const h4 = $("<h1></h1>");
+  h4.addClass("h");
+  h4.text("-Coming Soon-");
+  const div4 = $("<div></div>");
+  div4.addClass("coming");
+  const fun4 = $("<script>addComing()</script>");
+  div4.append(fun4);
+  $("#content").append(h4);
+  $("#content").append(div4);
+};
 
-const disc = () => {
-  $("#content").html("")
-  $("#content").css("height" , "600px")
-  val = 300
-  const arr = ["AMD's fastest 6-core processor for the main desktop, with 12 threads.",
-  "It can deliver an elite 100+ FPS performance in the world's most popular games."
-  ,"NOT Including Cooler",
-  "4.6 GHz Max Boost, Unlocked for Overclocking,"]
-  const div = $("<div></div>")
-  div.addClass("divdiv")
-  const h1 = $("<h1></h1>")
-  h1.html("AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray :-")
-  h1.css("color" , "rgb(34,34,34)")
-  const  ul = $("<ul></ul>")
-  ul.addClass("ul")
-  for (let x=0 ; x<arr.length ; x++){
-    const  li = $("<li></li>")
-    li.addClass("li")
-    li.text(arr[x])
-    li.css({"margin-bottom":"40px" , "margin-left":"20px" , "color" : "rgb(117,117,117)"})
-    ul.append(li)
+const disc = (ind) => {
+  $("#content").html("");
+  $("#content").css("height", "600px");
+  val = pricearr[ind];
+  const arr = [
+    "AMD's fastest 6-core processor for the main desktop, with 12 threads.",
+    "It can deliver an elite 100+ FPS performance in the world's most popular games.",
+    "NOT Including Cooler",
+    "4.6 GHz Max Boost, Unlocked for Overclocking,",
+  ];
+  const name = key[ind]
+  const div = $("<div></div>");
+  div.addClass("divdiv");
+  const h1 = $("<h1></h1>");
+  h1.html(name +" :-");
+  h1.css("color", "rgb(34,34,34)");
+  const ul = $("<ul></ul>");
+  ul.addClass("ul");
+  for (let x = 0; x < arr.length; x++) {
+    const li = $("<li></li>");
+    li.addClass("li");
+    li.text(arr[x]);
+    li.css({
+      "margin-bottom": "40px",
+      "margin-left": "20px",
+      color: "rgb(90,90,90)",
+    });
+    ul.append(li);
   }
-  const img = $("<img>")
-  img.attr("src" , "images/" + 0 + ".jpg")
-  img.addClass("im")
-  img.css({"width" : "400px" , "height" : "330px" , "margin-left":"40px" ,  })
-  div.css({"display" : "grid" ,"gap" : "0px"  ,"align-content": "center",  })
-  div.append(h1)
-  div.append(ul)
-  div.append(img)
-  $("#content").append(div)
-  const divRight = $("<div></div>")
-  divRight.addClass("divRight")
-  const price =  $("<h1></h1>")
-  price.html("The price is :-")
-  price.css({"color" : "rgb(34,34,34)" , "margin-bottom" : "-80px"})
-  const  value =  $("<h1></h1>")
-  value.html(val + " JOD")
-  value.css("color" , "rgb(0,0,0)")
-  divRight.append(price)
-  divRight.append(value)
-  $("#content").append(divRight)
-  $(".h1header").on("click" , ()=> home())
-}
+  const img = $("<img>");
+  if (ind === 3 ){
+    img.attr("src", "key img/" + ind + ".jpeg");
+  }else{img.attr("src", "key img/" + ind + ".jpg");
+  } 
+  img.addClass("im");
+  img.css({ width: "400px", height: "330px", "margin-left": "40px" });
+  div.css({ display: "grid", gap: "0px", "align-content": "center" });
+  div.append(h1);
+  div.append(ul);
+  div.append(img);
+  $("#content").append(div);
+  const divRight = $("<div></div>");
+  divRight.addClass("divRight");
+  const price = $("<h1></h1>");
+  price.html("The price is :-");
+  price.css({ color: "rgb(34,34,34)", "margin-bottom": "-80px" });
+  const value = $("<h1></h1>");
+  value.html(val + " JOD");
+  value.css("color", "rgb(0,0,0)");
+  divRight.append(price);
+  divRight.append(value);
+  $("#content").append(divRight);
+  $(".divRight").on("click" , () => chart(name))
+  $(".h1header").on("click", () => home());
+};
 
 const addSpecial = () => {
   const special = [
@@ -136,17 +149,17 @@ const addSpecial = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
-    img.on("click" , () => disc())
-    img.css("cursor" , "pointer")
+    img.on("click", () => disc());
+    img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
     p.text(special[x]);
     p.addClass("p");
-    const btn = $("<button></button>")
-    btn.addClass("contentbtn")
-    btn.append(p)
+    const btn = $("<button></button>");
+    btn.addClass("contentbtn");
+    btn.append(p);
     div.append(btn);
-    btn.on("click" , () => disc())
+    btn.on("click", () => disc());
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -175,17 +188,17 @@ const addNew = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
-    img.on("click" , () => disc())
-    img.css("cursor" , "pointer")
+    img.on("click", () => disc());
+    img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
     p.text(special[x]);
     p.addClass("p");
-    const btn = $("<button></button>")
-    btn.addClass("contentbtn")
-    btn.append(p)
+    const btn = $("<button></button>");
+    btn.addClass("contentbtn");
+    btn.append(p);
     div.append(btn);
-    btn.on("click" , () => disc())
+    btn.on("click", () => disc());
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -215,17 +228,17 @@ const addBest = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
-    img.on("click" , () => disc())
-    img.css("cursor" , "pointer")
+    img.on("click", () => disc());
+    img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
     p.text(special[x]);
     p.addClass("p");
-    const btn = $("<button></button>")
-    btn.addClass("contentbtn")
-    btn.append(p)
+    const btn = $("<button></button>");
+    btn.addClass("contentbtn");
+    btn.append(p);
     div.append(btn);
-    btn.on("click" , () => disc())
+    btn.on("click", () => disc());
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -255,17 +268,17 @@ const addComing = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
-    img.on("click" , () => disc())
-    img.css("cursor" , "pointer")
+    img.on("click", () => disc());
+    img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
     p.text(special[x]);
     p.addClass("p");
-    const btn = $("<button></button>")
-    btn.addClass("contentbtn")
-    btn.append(p)
+    const btn = $("<button></button>");
+    btn.addClass("contentbtn");
+    btn.append(p);
     div.append(btn);
-    btn.on("click" , () => disc())
+    btn.on("click", () => disc());
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -300,30 +313,30 @@ const search = function () {
   ind.forEach((elem) => {
     const img = $("<img>");
     img.addClass("img1");
-    if (elem === 3 ) {
+    if (elem === 3) {
       img.attr("src", "key img/" + elem + ".jpeg");
     } else {
       img.attr("src", "key img/" + elem + ".jpg");
     }
-    img.on("click" , () => disc())
-    img.css("cursor" , "pointer")
+    img.on("click", () => disc(elem));
+    img.css("cursor", "pointer");
     divImg.append(img);
   });
   const divP = $("<div></div>");
   divP.addClass("sortP");
-  arr.forEach((elem) => {
+  arr.forEach((elem,ind) => {
     const p = $("<p></p>");
     p.text(elem);
     p.addClass("p1");
-    p.on("click" , () => disc())
-    p.css("cursor" , "pointer")
+    p.on("click", () => disc(ind));
+    p.css("cursor", "pointer");
     divP.append(p);
   });
   divRes.append(divImg);
   divRes.append(divP);
   div.append(divRes);
   $("#content").append(div);
-  $(".h1header").on("click" , ()=> home())
+  $(".h1header").on("click", () => home());
 };
 
 const about = () => {
@@ -381,45 +394,82 @@ const about = () => {
   );
   p3.addClass("aboutP");
   div.append(p3);
-  div.css("margin" , "35px")
-  $("#content").css({"height" :"500px" })
+  div.css("margin", "35px");
+  $("#content").css({ height: "500px" });
   $("#content").append(div);
-  $(".h1header").on("click" , ()=> home())
+  $(".h1header").on("click", () => home());
 };
 
 const contact = () => {
-  $("#content").html("")
-  $("#content").css({"height": "200px" , "gap" :"200px"});
-  const div = $("<div></div>")
-  div.addClass("contactDiv")
-  const h1 = $("<h1></h1>")
-  h1.css({"color": "rgb(177,22,22)" , "border-bottom-style" : "groove" ,"width" : "240px"})
-  h1.text("For Contact Us :-")
-  const h2 = $("<h2></h2>")
-  h2.css({"color":"rgba(177,22,22,0.8)" , "margin-left": "20px" , "border-bottom-style" : "groove" , "width" : "62px"})
-  h2.text("-Tel :-")
-  const h3 = $("<h2></h2>")
-  h3.text("078-66-8-77-48")
-  h3.css({"color": "rgba(0, 0, 0,0.7)" , "margin-left": "70px"})
-  const h4 = $("<h2></h2>")
-  h4.text("-E-mail :-")
-  h4.css({"color":"rgba(177,22,22,0.8)" , "margin-left": "20px" ,  "border-bottom-style" : "groove" , "width" : "101px"})
-  const h5 = $("<h2></h2>")
-  h5.text("deyah.mosa@hotmail.com")
-  h5.css({"color": "rgba(0, 0, 0,0.7)" , "margin-left": "70px"})
-  const h6 = $("<h2></h2>")
-  h6.text("-Location :-")
-  h6.css({"color":"rgba(177,22,22,0.8)" , "margin-left": "20px","border-bottom-style" : "groove" , "width" : "123px"})
-  const h7 = $("<h2></h2>")
-  h7.text("Amman - Jordan")
-  h7.css({"color": "rgba(0, 0, 0,0.7)" , "margin-left": "70px"})
-  div.append(h1)
-  div.append(h2)
-  div.append(h3)
-  div.append(h4)
-  div.append(h5)
-  div.append(h6)
-  div.append(h7)
-  $("#content").append(div)
-  $(".h1header").on("click" , ()=> home())
+  $("#content").html("");
+  $("#content").css({ height: "200px", gap: "200px" });
+  const div = $("<div></div>");
+  div.addClass("contactDiv");
+  const h1 = $("<h1></h1>");
+  h1.css({
+    color: "rgb(177,22,22)",
+    "border-bottom-style": "groove",
+    width: "240px",
+  });
+  h1.text("For Contact Us :-");
+  const h2 = $("<h2></h2>");
+  h2.css({
+    color: "rgba(177,22,22,0.8)",
+    "margin-left": "20px",
+    "border-bottom-style": "groove",
+    width: "62px",
+  });
+  h2.text("-Tel :-");
+  const h3 = $("<h2></h2>");
+  h3.text("078-66-8-77-48");
+  h3.css({ color: "rgba(0, 0, 0,0.7)", "margin-left": "70px" });
+  const h4 = $("<h2></h2>");
+  h4.text("-E-mail :-");
+  h4.css({
+    color: "rgba(177,22,22,0.8)",
+    "margin-left": "20px",
+    "border-bottom-style": "groove",
+    width: "101px",
+  });
+  const h5 = $("<h2></h2>");
+  h5.text("deyah.mosa@hotmail.com");
+  h5.css({ color: "rgba(0, 0, 0,0.7)", "margin-left": "70px" });
+  const h6 = $("<h2></h2>");
+  h6.text("-Location :-");
+  h6.css({
+    color: "rgba(177,22,22,0.8)",
+    "margin-left": "20px",
+    "border-bottom-style": "groove",
+    width: "123px",
+  });
+  const h7 = $("<h2></h2>");
+  h7.text("Amman - Jordan");
+  h7.css({ color: "rgba(0, 0, 0,0.7)", "margin-left": "70px" });
+  div.append(h1);
+  div.append(h2);
+  div.append(h3);
+  div.append(h4);
+  div.append(h5);
+  div.append(h6);
+  div.append(h7);
+  $("#content").append(div);
+  $(".h1header").on("click", () => home());
+};
+
+const chart = (elem) => {
+  if (elem.toLowerCase().search($(".insearch").val().toLowerCase()) >= 0) {
+    if (typeof(Storage) !== "undefined") {
+      // Store
+      (localStorage.setItem("f", elem));
+      // Retrieve
+      $(".test").html($(".test").html() +(localStorage.getItem("f")) + "-")
+      // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+    } else {
+      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+    
+  }
+  let x = (localStorage.getItem("f")) + "-"
+
+  console.log(x)
 }

@@ -1,6 +1,5 @@
 #main {
   display: grid;
-
 }
 
 #header {
@@ -8,10 +7,10 @@
   height: 150px;
   border-bottom-style: groove;
   display: flex;
-  color :#000000
+  color: #000000;
 }
 
-.h{
+.h {
   margin-left: 43%;
 }
 
@@ -35,16 +34,16 @@
   border: none;
 }
 
-.btnsearch:hover{
+.btnsearch:hover {
   border-style: solid;
 }
 
 .h1header {
   margin-top: 17px;
-  color: rgb(36,30,32);
+  color: rgb(36, 30, 32);
 }
 
-.h1header:hover{
+.h1header:hover {
   cursor: pointer;
   border-style: solid;
   width: 240px;
@@ -52,11 +51,10 @@
   height: 80px;
 }
 
-
-.contentbtn{
+.contentbtn {
   background-color: white;
   border-style: none;
-  font-family:'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   cursor: pointer;
 }
 
@@ -81,11 +79,11 @@
   cursor: pointer;
 }
 
-.btn:hover{
+.btn:hover {
   border-style: solid;
 }
 
-.btn1:hover{
+.btn1:hover {
   border-style: solid;
 }
 
@@ -110,7 +108,7 @@
 .special {
   display: flex;
   border-style: solid;
-  border-bottom-width:  1px;
+  border-bottom-width: 1px;
   border-top: none;
   border-left: hidden;
   border-right: hidden;
@@ -120,7 +118,7 @@
 
 .new {
   display: flex;
-  border-style:solid;
+  border-style: solid;
   border-bottom-width: 1px;
   border-top: none;
   border-left: hidden;
@@ -234,37 +232,34 @@
   cursor: pointer;
 }
 
-.contactDiv{
+.contactDiv {
   margin-top: 40px;
   margin-left: 40px;
   display: grid;
 }
 
-.divdiv{
+.divdiv {
   margin-top: 30px;
   margin-left: 60px;
-
 }
 
 .im {
-  filter: blur(2px)
+  filter: blur(2px);
 }
-.im:hover{
+.im:hover {
   zoom: 1.4;
   filter: none;
 }
 
-.divRight{
+.divRight {
   width: 550px;
   height: 300px;
   border-style: none;
-  background-color: rgb(220,220,220);
+  background-color: rgb(220, 220, 220);
   border-radius: 15px;
   position: absolute;
-  right:  100px;
+  right: 100px;
   top: 260px;
   display: grid;
   justify-items: center;
 }
-
-
