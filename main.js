@@ -27,8 +27,24 @@ const keyboard = [
 const arr = [];
 const key = arr.concat(cpu, gpu, laptop, keyboard);
 console.log(key);
-const pricearr = [300 , 180 , 145 , 360 , 1200 , 1500 , 850 , 340 , 975 ,999,
-999, 529 ,69 , 189 ,39,99 ]
+const pricearr = [
+  300,
+  180,
+  145,
+  360,
+  1200,
+  1500,
+  850,
+  340,
+  975,
+  999,
+  999,
+  529,
+  69,
+  189,
+  39,
+  99,
+];
 
 const home = () => {
   $("#content").html("");
@@ -81,11 +97,11 @@ const disc = (ind) => {
     "NOT Including Cooler",
     "4.6 GHz Max Boost, Unlocked for Overclocking,",
   ];
-  const name = key[ind]
+  const name = key[ind];
   const div = $("<div></div>");
   div.addClass("divdiv");
   const h1 = $("<h1></h1>");
-  h1.html(name +" :-");
+  h1.html(name + " :-");
   h1.css("color", "rgb(34,34,34)");
   const ul = $("<ul></ul>");
   ul.addClass("ul");
@@ -101,10 +117,11 @@ const disc = (ind) => {
     ul.append(li);
   }
   const img = $("<img>");
-  if (ind === 3 ){
+  if (ind === 3) {
     img.attr("src", "key img/" + ind + ".jpeg");
-  }else{img.attr("src", "key img/" + ind + ".jpg");
-  } 
+  } else {
+    img.attr("src", "key img/" + ind + ".jpg");
+  }
   img.addClass("im");
   img.css({ width: "400px", height: "330px", "margin-left": "40px" });
   div.css({ display: "grid", gap: "0px", "align-content": "center" });
@@ -123,40 +140,39 @@ const disc = (ind) => {
   divRight.append(price);
   divRight.append(value);
   $("#content").append(divRight);
-  $(".divRight").on("click" , () => chart(name))
+  $(".divRight").on("click", () => chart(name));
   $(".h1header").on("click", () => home());
 };
 
 const addSpecial = () => {
-  const special = [
-  ];
-  for (let x = 0 ; x < 5 ; x++){
-    let ind = Math.ceil(Math.random()*15)
-    if (special.includes(ind) === false ){
-    special.push(key[ind] , ind)
-  }else{
-    x--;
-  }
+  const special = [];
+  for (let x = 0; x < 5; x++) {
+    let ind = Math.ceil(Math.random() * 15);
+    if (special.includes(ind) === false) {
+      special.push(key[ind], ind);
+    } else {
+      x--;
+    }
   }
   const spec = $(".special");
-  for (let x = 0; x <=8; x+=2) {
+  for (let x = 0; x <= 8; x += 2) {
     const div = $("<div></div>");
     div.addClass("s");
     spec.append(div);
     const img = $("<img>");
     img.addClass("img");
-    if (x === 8 && special[x+1] !== 3) {
-      img.attr("src", "key img/" + special[x+1] + ".jpg");
+    if (x === 8 && special[x + 1] !== 3) {
+      img.attr("src", "key img/" + special[x + 1] + ".jpg");
       div.css("border-right", "hidden");
-    } else if (x === 8 && special[x+1] === 3){
+    } else if (x === 8 && special[x + 1] === 3) {
       div.css("border-right", "hidden");
-      img.attr("src", "key img/" + special[x+1] + ".jpeg");
-    }else if (special[x+1] === 3) {
-      img.attr("src", "key img/" + special[x+1] + ".jpeg");
-    }else{
-      img.attr("src", "key img/" + special[x+1] + ".jpg");
+      img.attr("src", "key img/" + special[x + 1] + ".jpeg");
+    } else if (special[x + 1] === 3) {
+      img.attr("src", "key img/" + special[x + 1] + ".jpeg");
+    } else {
+      img.attr("src", "key img/" + special[x + 1] + ".jpg");
     }
-    img.on("click", () => disc(special[x+1]));
+    img.on("click", () => disc(special[x + 1]));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -166,10 +182,10 @@ const addSpecial = () => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc(special[x+1]));
+    btn.on("click", () => disc(special[x + 1]));
     const price = $("<h2></h2>");
     price.addClass("pr");
-    price.text(pricearr[special[x+1]] + " JOD");
+    price.text(pricearr[special[x + 1]] + " JOD");
     div.append(price);
   }
 };
@@ -331,7 +347,7 @@ const search = function () {
   });
   const divP = $("<div></div>");
   divP.addClass("sortP");
-  arr.forEach((elem,ind) => {
+  arr.forEach((elem, ind) => {
     const p = $("<p></p>");
     p.text(elem);
     p.addClass("p1");
@@ -465,18 +481,59 @@ const contact = () => {
 
 const chart = (elem) => {
   if (elem.toLowerCase().search($(".insearch").val().toLowerCase()) >= 0) {
-    if (typeof(Storage) !== "undefined") {
+    if (typeof Storage !== "undefined") {
       // Store
-      (localStorage.setItem("f", elem));
+      localStorage.setItem("f", elem);
       // Retrieve
-      $(".test").html($(".test").html() +(localStorage.getItem("f")) + "-")
+      $(".test").html($(".test").html() + localStorage.getItem("f") + "-");
       // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
     } else {
-      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+      document.getElementById("result").innerHTML =
+        "Sorry, your browser does not support Web Storage...";
     }
-    
   }
-  let x = (localStorage.getItem("f")) + "-"
+  let x = localStorage.getItem("f") + "-";
 
-  console.log(x)
+  console.log(x);
+};
+
+const funCpu = () =>{
+  $("#content").html("");
+  $("#content").css({ height: "200px", gap: "50px" });
+  const header = $("<h1></h1>")
+  header.addClass("h")
+  header.text("CPU & Processor")
+  const div1 = $("<div></div>")
+  div1.addClass("special")
+  for(let x = 0 ; x <= 3 ; x++){
+      const div = $("<div></div>");
+      div.addClass("s");
+      const img = $("<img>");
+      img.addClass("img");
+      if (x === 3 ) {
+        img.attr("src", "key img/" + x + ".jpeg");
+        div.css("border-right", "hidden");
+      } else {
+        img.attr("src", "key img/" + x + ".jpg");
+      }
+      img.on("click", () => disc(x));
+      img.css("cursor", "pointer");
+      div.append(img);
+      const p = $("<p></p>");
+      p.text(key[x]);
+      p.addClass("p");
+      const btn = $("<button></button>");
+      btn.addClass("contentbtn");
+      btn.append(p);
+      div.append(btn);
+      btn.on("click", () => disc(x));
+      const price = $("<h2></h2>");
+      price.addClass("pr");
+      price.text(pricearr[x] + " JOD");
+      div.append(price);
+      div1.append(div);
+    }
+    $("#content").append(header)
+    $("#content").append(div1)
+    $(".h1header").on("click", () => home());
 }
