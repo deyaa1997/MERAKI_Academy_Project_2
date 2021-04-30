@@ -31,6 +31,7 @@ console.log(key)
 const disc = () => {
   $("#content").html("")
   $("#content").css("height" , "600px")
+  val = 300
   const arr = ["AMD's fastest 6-core processor for the main desktop, with 12 threads.",
   "It can deliver an elite 100+ FPS performance in the world's most popular games."
   ,"NOT Including Cooler",
@@ -58,6 +59,17 @@ const disc = () => {
   div.append(ul)
   div.append(img)
   $("#content").append(div)
+  const divRight = $("<div></div>")
+  divRight.addClass("divRight")
+  const price =  $("<h1></h1>")
+  price.html("The price is :-")
+  price.css({"color" : "rgb(34,34,34)" , "margin-bottom" : "-80px"})
+  const  value =  $("<h1></h1>")
+  value.html(val + " JOD")
+  value.css("color" , "rgb(0,0,0)")
+  divRight.append(price)
+  divRight.append(value)
+  $("#content").append(divRight)
 }
 
 const addSpecial = () => {
