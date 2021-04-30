@@ -35,6 +35,10 @@
   border: none;
 }
 
+.btnsearch:hover{
+  border-style: solid;
+}
+
 .h1header {
   margin-top: 17px;
   color: rgb(36,30,32);
@@ -42,6 +46,10 @@
 
 .h1header:hover{
   cursor: pointer;
+  border-style: solid;
+  width: 240px;
+  margin-right: 94px;
+  height: 80px;
 }
 
 
@@ -71,6 +79,14 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+}
+
+.btn:hover{
+  border-style: solid;
+}
+
+.btn1:hover{
+  border-style: solid;
 }
 
 #chart {
