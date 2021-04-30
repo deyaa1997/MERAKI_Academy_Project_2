@@ -15,14 +15,14 @@ const laptop =[
   "MSI GF65 Thin NEW 10Gen Core i7 6-Cores w/ GTX 1660TI 144Hz",
   "HP Gaming Pavilion 15-dk1020ne 10Gen I7 w/ GTX 1660 TI",
   "Lenovo NEW ThinkPad L15 Gen1 AMD Ryzen 7 PRO Laptop",
-  "HP Laptop 15-dw3046ne NEW Intel 11th Gen Core i5 - Black"
+  "HP Laptop 15-dw3046ne NEW Intel 11th Gen Core i5 - Black",
 ]
 
 const keyboard =[
   "HyperX Alloy Origins 60 Mechanical Gaming Keyboard",
   "Razer Huntsman V2 Analog Optical Switches RGB Chroma",
   "Redragon K530 RGB 61 Keys USB-C & Bluetooth White",
-  "Razer Huntsman Mini 60% Linear Optical Switches White"
+  "Razer Huntsman Mini 60% Linear Optical Switches White",
 ]
 const arr = []
 const key = arr.concat(cpu,gpu,laptop,keyboard)
@@ -258,10 +258,10 @@ const search = function () {
   ind.forEach((elem) => {
     const img = $("<img>");
     img.addClass("img1");
-    if (elem === 4) {
-      img.attr("src", "images/" + elem + ".jpeg");
+    if (elem === 3 ) {
+      img.attr("src", "key img/" + elem + ".jpeg");
     } else {
-      img.attr("src", "images/" + elem + ".jpg");
+      img.attr("src", "key img/" + elem + ".jpg");
     }
     divImg.append(img);
   });
@@ -334,6 +334,7 @@ const about = () => {
   );
   p3.addClass("aboutP");
   div.append(p3);
+  div.css("margin" , "35px")
   $("#content").css({"height" :"500px" })
   $("#content").append(div);
 };
