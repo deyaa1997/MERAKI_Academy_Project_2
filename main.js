@@ -129,27 +129,31 @@ const disc = (ind) => {
 
 const addSpecial = () => {
   const special = [
-    "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
-    "ASUS ROG Strix GeForce RTX 3070 8GB GDDR6 OC Edition",
-    "MSI GF65 Thin NEW 10Gen Core i7 6-Cores w/ GTX 1660TI 144Hz",
-    "HyperX Alloy Origins 60 Mechanical Gaming Keyboard",
-    "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
   ];
-  const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
+  for (let x = 0 ; x < 5 ; x++){
+    let ind = Math.ceil(Math.random()*15)
+    if (special.includes(ind) === false )
+    special.push(key[ind] , ind)
+  }
   const spec = $(".special");
-  for (let x = 0; x < 5; x++) {
+  for (let x = 0; x <=8; x+=2) {
     const div = $("<div></div>");
     div.addClass("s");
     spec.append(div);
     const img = $("<img>");
     img.addClass("img");
-    if (x === 4) {
-      img.attr("src", "images/" + x + ".jpeg");
+    if (x === 8 && special[x+1] !== 3) {
+      img.attr("src", "key img/" + special[x+1] + ".jpg");
       div.css("border-right", "hidden");
-    } else {
-      img.attr("src", "images/" + x + ".jpg");
+    } else if (x === 8 && special[x+1] === 3){
+      div.css("border-right", "hidden");
+      img.attr("src", "key img/" + special[x+1] + ".jpeg");
+    }else if (special[x+1] === 3) {
+      img.attr("src", "key img/" + special[x+1] + ".jpeg");
+    }else{
+      img.attr("src", "key img/" + special[x+1] + ".jpg");
     }
-    img.on("click", () => disc());
+    img.on("click", () => disc(special[x+1]));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -159,10 +163,10 @@ const addSpecial = () => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc());
+    btn.on("click", () => disc(special[x+1]));
     const price = $("<h2></h2>");
     price.addClass("pr");
-    price.text(priceArr[x]);
+    price.text(pricearr[special[x+1]] + " JOD");
     div.append(price);
   }
 };
