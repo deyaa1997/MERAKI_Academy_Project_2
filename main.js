@@ -135,13 +135,21 @@ const disc = (ind) => {
   const divRight = $("<div></div>");
   divRight.addClass("divRight");
   const price = $("<h1></h1>");
-  price.html("The price is :-");
+  price.html("The Price Is :-");
   price.css({ color: "rgb(34,34,34)", "margin-bottom": "-80px" });
   const value = $("<h1></h1>");
   value.html(val + " JOD");
-  value.css("color", "rgb(0,0,0)");
+  value.css({"color": "rgb(0,0,0)" , "height" : "50px"});
+  const addToCart = $("<button></button>")
+  addToCart.addClass("cart")
+  addToCart.html("Add To Cart")
+  addToCart.on("click" , saveCart(ind))
+  const rev = $("<button></button>")
+  rev.addClass("rev")
+  rev.html("Add to cart")
   divRight.append(price);
   divRight.append(value);
+  divRight.append(addToCart);
   $("#content").append(divRight);
   $(".divRight").on("click", () => chart(name));
   $(".h1header").on("click", () => home());
@@ -352,7 +360,7 @@ const search = function () {
     div.addClass("searchBar");
     div.css("margin", "40px");
     const result = $("<h1></h1>");
-    result.html("The Result Search Is :-");
+    result.html("The Results Search Is :-");
     div.append(result);
     const divRes = $("<div></div>");
     divRes.addClass("results");
@@ -388,6 +396,7 @@ const search = function () {
   } else {
     alert("Please Enter The Correct Word");
   }
+
 };
 
 const about = () => {
@@ -525,6 +534,7 @@ const cart = () => {
   div.append(Overview);
   div.css("margin", "40px");
   $("#content").append(div);
+  $(".h1header").on("click", () => home());
 
   /*if (elem.toLowerCase().search($(".insearch").val().toLowerCase()) >= 0) {
     if (typeof Storage !== "undefined") {
@@ -713,3 +723,7 @@ const funKeyboard = () => {
   $("#content").append(div1);
   $(".h1header").on("click", () => home());
 };
+
+const saveCart = (elem) => {
+
+}
