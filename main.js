@@ -2,7 +2,7 @@ const cpu = [
   "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
   "AMD RYZEN 5 3600 6-Core 3.6 GHz (4.2 GHz Max Boost)",
   "Intel Core i5-10400F Comet Lake 6-Cores up to 4.3 GHz 12MB",
-  "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
+  "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB"   , 
 ];
 const gpu = [
   "ASUS ROG Strix GeForce RTX 3070 8GB GDDR6 OC Edition",
@@ -151,7 +151,10 @@ const disc = (ind) => {
   $("#content").append(div);
   $("#content").append(divRight);
   $(".h1header").on("click", () => home());
-  addToCart.on("click", () => saveCart(ind));
+  addToCart.on("click", () => {
+    $(".cart").css("background-color" , "green")
+    saveCart(ind)
+  });
 };
 
 const saveCart = (q) => {
@@ -255,11 +258,11 @@ const addNew = () => {
 
 const addBest = () => {
   const special = [
-    "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
-    "ASUS ROG Strix GeForce RTX 3070 8GB GDDR6 OC Edition",
-    "MSI GF65 Thin NEW 10Gen Core i7 6-Cores w/ GTX 1660TI 144Hz",
-    "HyperX Alloy Origins 60 Mechanical Gaming Keyboard",
-    "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
+    key[2],
+    key[5],
+    key[10],
+    key[13],
+    key[9],
   ];
   const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
   const dis = [];
@@ -275,10 +278,10 @@ const addBest = () => {
     const img = $("<img>");
     img.addClass("img");
     if (x === 4) {
-      img.attr("src", "images/" + x + ".jpeg");
+      img.attr("src", "key img/" + key.indexOf(special[x]) + ".jpg");
       div.css("border-right", "hidden");
     } else {
-      img.attr("src", "images/" + x + ".jpg");
+      img.attr("src", "key img/" + key.indexOf(special[x]) + ".jpg");
     }
     img.on("click", () => disc(dis[x]));
     img.css("cursor", "pointer");
@@ -293,7 +296,7 @@ const addBest = () => {
     btn.on("click", () => disc(dis[x]));
     const price = $("<h2></h2>");
     price.addClass("pr");
-    price.text(priceArr[x]);
+    price.text(pricearr[key.indexOf(special[x])] + " JOD");
     div.append(price);
     best.append(div);
   }
@@ -301,11 +304,11 @@ const addBest = () => {
 
 const addComing = () => {
   const special = [
-    "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
-    "ASUS ROG Strix GeForce RTX 3070 8GB GDDR6 OC Edition",
-    "MSI GF65 Thin NEW 10Gen Core i7 6-Cores w/ GTX 1660TI 144Hz",
-    "HyperX Alloy Origins 60 Mechanical Gaming Keyboard",
-    "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
+    key[1],
+    key[7],
+    key[6],
+    key[15],
+    key[11],
   ];
   const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
   const dis = [];
@@ -321,10 +324,10 @@ const addComing = () => {
     const img = $("<img>");
     img.addClass("img");
     if (x === 4) {
-      img.attr("src", "images/" + x + ".jpeg");
+      img.attr("src", "key img/" + key.indexOf(special[x]) + ".jpg");
       div.css("border-right", "hidden");
     } else {
-      img.attr("src", "images/" + x + ".jpg");
+      img.attr("src", "key img/" + key.indexOf(special[x]) + ".jpg");
     }
     img.on("click", () => disc(dis[x]));
     img.css("cursor", "pointer");
@@ -339,7 +342,7 @@ const addComing = () => {
     btn.on("click", () => disc(dis[x]));
     const price = $("<h2></h2>");
     price.addClass("pr");
-    price.text(priceArr[x]);
+    price.text(pricearr[key.indexOf(special[x])] + " JOD");
     div.append(price);
     coming.append(div);
   }
@@ -585,7 +588,7 @@ const cart = () => {
   }
   if (save.length !== 0 ){
   const total = $("<h1></h1>");
-  total.html("-Subtotal (" + save.length +" item):  " + sum + " JOD" );
+  total.html(`- Thank You Your Subtotal For ( ${save.length} items ) Is:  ${sum}  JOD`);
   total.addClass("total")
   div.append(total);}
   div.css("margin", "40px");

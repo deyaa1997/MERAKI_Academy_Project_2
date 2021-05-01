@@ -382,12 +382,11 @@
 }
 
 .total{
-  color: rgba(19, 18, 18, 0.959) ; 
+  color: rgb(19, 18, 18) ; 
   border-top-style :solid ;
   border-top-color:rgb(177,22,22) ;
   border-top-width: 1px;
-  width : 500px;
+  width: 800px;
   text-align: center;
-  margin-left: 560px;
   padding: 30px;
 }
