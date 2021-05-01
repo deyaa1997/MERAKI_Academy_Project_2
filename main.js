@@ -52,7 +52,7 @@ const home = () => {
   $("#content").css({ gap: "30px" });
   const h1 = $("<h1></h1>");
   h1.addClass("h");
-  h1.css("margin-top" , "70px")
+  h1.css("margin-top", "70px");
   h1.text("-Special Products-");
   const div1 = $("<div></div>");
   div1.addClass("special");
@@ -202,6 +202,13 @@ const addNew = () => {
     "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
   ];
   const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
+  const dis = [];
+  for (let z = 0; z < special.length; z++) {
+    if (key.indexOf(special[z]) >= 0) {
+      dis.push(key.indexOf(special[z]));
+    }
+  }
+  console.log(dis);
   const New = $(".new");
   for (let x = 0; x < 5; x++) {
     const div = $("<div></div>");
@@ -214,7 +221,7 @@ const addNew = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
-    img.on("click", () => disc());
+    img.on("click", () => disc(dis[x]));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -224,7 +231,7 @@ const addNew = () => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc());
+    btn.on("click", () => disc(dis[x]));
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -242,6 +249,12 @@ const addBest = () => {
     "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
   ];
   const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
+  const dis = [];
+  for (let z = 0; z < special.length; z++) {
+    if (key.indexOf(special[z]) >= 0) {
+      dis.push(key.indexOf(special[z]));
+    }
+  }
   const best = $(".best");
   for (let x = 0; x < 5; x++) {
     const div = $("<div></div>");
@@ -254,7 +267,7 @@ const addBest = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
-    img.on("click", () => disc());
+    img.on("click", () => disc(dis[x]));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -264,7 +277,7 @@ const addBest = () => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc());
+    btn.on("click", () => disc(dis[x]));
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -282,6 +295,12 @@ const addComing = () => {
     "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
   ];
   const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
+  const dis = [];
+  for (let z = 0; z < special.length; z++) {
+    if (key.indexOf(special[z]) >= 0) {
+      dis.push(key.indexOf(special[z]));
+    }
+  }
   const coming = $(".coming");
   for (let x = 0; x < 5; x++) {
     const div = $("<div></div>");
@@ -294,7 +313,7 @@ const addComing = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
-    img.on("click", () => disc());
+    img.on("click", () => disc(dis[x]));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -304,7 +323,7 @@ const addComing = () => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc());
+    btn.on("click", () => disc(dis[x]));
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -501,11 +520,11 @@ const cart = () => {
   div.append(about);
   const Overview = $("<h1></h1>");
   Overview.html("*Your shopping cart is empty!");
-  Overview.css("margin-top" , "40px")
+  Overview.css("margin-top", "40px");
   Overview.addClass("aboutH");
   div.append(Overview);
-  div.css("margin" , "40px")
-  $("#content").append(div)
+  div.css("margin", "40px");
+  $("#content").append(div);
 
   /*if (elem.toLowerCase().search($(".insearch").val().toLowerCase()) >= 0) {
     if (typeof Storage !== "undefined") {
