@@ -222,6 +222,13 @@
   gap: 50px;
 }
 
+.sortPr{
+  display: grid;
+  justify-content: space-around;
+  gap : 50px;
+  margin-left: 70px;
+}
+
 .img1 {
   width: 180px;
   height: 140px;
@@ -372,4 +379,15 @@
   cursor: pointer;
   height: 70px;
   margin-top: -70px;
+}
+
+.total{
+  color: rgba(19, 18, 18, 0.959) ; 
+  border-top-style :solid ;
+  border-top-color:rgb(177,22,22) ;
+  border-top-width: 1px;
+  width : 500px;
+  text-align: center;
+  margin-left: 560px;
+  padding: 30px;
 }

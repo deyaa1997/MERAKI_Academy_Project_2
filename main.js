@@ -46,6 +46,8 @@ const pricearr = [
   99,
 ];
 
+const save = [];
+
 const home = () => {
   $(".mainimg").show();
   $("#content").html("");
@@ -131,7 +133,7 @@ const disc = (ind) => {
   div.append(h1);
   div.append(ul);
   div.append(img);
-  $("#content").append(div);
+
   const divRight = $("<div></div>");
   divRight.addClass("divRight");
   const price = $("<h1></h1>");
@@ -139,20 +141,23 @@ const disc = (ind) => {
   price.css({ color: "rgb(34,34,34)", "margin-bottom": "-80px" });
   const value = $("<h1></h1>");
   value.html(val + " JOD");
-  value.css({"color": "rgb(0,0,0)" , "height" : "50px"});
-  const addToCart = $("<button></button>")
-  addToCart.addClass("cart")
-  addToCart.html("Add To Cart")
-  addToCart.on("click" , saveCart(ind))
-  const rev = $("<button></button>")
-  rev.addClass("rev")
-  rev.html("Add to cart")
+  value.css({ color: "rgb(0,0,0)", height: "50px" });
+  const addToCart = $("<button></button>");
+  addToCart.addClass("cart");
+  addToCart.html("Add To Cart");
   divRight.append(price);
   divRight.append(value);
   divRight.append(addToCart);
+  $("#content").append(div);
   $("#content").append(divRight);
-  $(".divRight").on("click", () => chart(name));
   $(".h1header").on("click", () => home());
+  addToCart.on("click", () => saveCart(ind));
+};
+
+const saveCart = (q) => {
+  if (save.indexOf(q) < 0) {
+    save.push(q);
+  }
 };
 
 const addSpecial = () => {
@@ -355,7 +360,6 @@ const search = function () {
     $("#content").html("");
     $("#content").show();
     $("#content").css("height", "200px");
-    const main = $("#main");
     const div = $("<div></div>");
     div.addClass("searchBar");
     div.css("margin", "40px");
@@ -396,7 +400,6 @@ const search = function () {
   } else {
     alert("Please Enter The Correct Word");
   }
-
 };
 
 const about = () => {
@@ -522,16 +525,69 @@ const cart = () => {
   $(".mainimg").hide();
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "200px" });
+  let sum = 0
   const div = $("<div></div>");
   const about = $("<h1></h1>");
   about.html("-Shopping Cart");
   about.css("color", "rgb(177,22,22)");
   div.append(about);
-  const Overview = $("<h1></h1>");
-  Overview.html("*Your shopping cart is empty!");
-  Overview.css("margin-top", "40px");
-  Overview.addClass("aboutH");
-  div.append(Overview);
+  if (save.length === 0) {
+    const Overview = $("<h1></h1>");
+    Overview.html("*Your shopping cart is empty!");
+    Overview.css("margin-top", "40px");
+    Overview.addClass("aboutH");
+    div.append(Overview);
+  } else {
+    const div1 = $("<div></div>");
+    div1.addClass("searchBar");
+    div1.css("margin", "40px");
+    const divRes = $("<div></div>");
+    divRes.addClass("results");
+    const divImg = $("<div></div>");
+    divImg.addClass("sortImg");
+    save.forEach((elem) => {
+      const img = $("<img>");
+      img.addClass("img1");
+      if (elem === 3) {
+        img.attr("src", "key img/" + elem + ".jpeg");
+      } else {
+        img.attr("src", "key img/" + elem + ".jpg");
+      }
+      img.on("click", () => disc(elem));
+      img.css("cursor", "pointer");
+      divImg.append(img);
+    });
+    const divP = $("<div></div>");
+    divP.addClass("sortP");
+    save.forEach((elem, ind) => {
+      const p = $("<p></p>");
+      p.text(key[elem]);
+      p.addClass("p1");
+      p.on("click", () => disc(elem));
+      p.css("cursor", "pointer");
+      divP.append(p);
+    });
+    const divPr = $("<div></div>");
+    divPr.addClass("sortPr");
+    save.forEach((elem, ind) => {
+      const p2 = $("<p></p>");
+      p2.text(pricearr[elem] + " JOD");
+      sum += pricearr[elem]
+      p2.addClass("p1");
+      p2.css({"color" : "rgb(177,22,22)" , "font-weight" : "bolder"})
+      divPr.append(p2);
+    });
+    divRes.append(divImg);
+    divRes.append(divP);
+    divRes.append(divPr);
+    div1.append(divRes);
+    div.append(div1);
+  }
+  if (save.length !== 0 ){
+  const total = $("<h1></h1>");
+  total.html("-Subtotal (" + save.length +" item):  " + sum + " JOD" );
+  total.addClass("total")
+  div.append(total);}
   div.css("margin", "40px");
   $("#content").append(div);
   $(".h1header").on("click", () => home());
@@ -723,7 +779,3 @@ const funKeyboard = () => {
   $("#content").append(div1);
   $(".h1header").on("click", () => home());
 };
-
-const saveCart = (elem) => {
-
-}
