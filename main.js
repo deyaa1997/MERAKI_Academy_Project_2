@@ -47,6 +47,7 @@ const pricearr = [
 ];
 
 const home = () => {
+  $(".mainimg").show();
   $("#content").html("");
   $("#content").css({ gap: "30px" });
   const h1 = $("<h1></h1>");
@@ -88,6 +89,7 @@ const home = () => {
 };
 
 const disc = (ind) => {
+  $(".mainimg").hide();
   $("#content").html("");
   $("#content").css("height", "600px");
   val = pricearr[ind];
@@ -311,6 +313,7 @@ const addComing = () => {
 };
 
 const search = function () {
+  $(".mainimg").hide();
   const arr = [];
   const ind = [];
   key.forEach((elem, index) => {
@@ -363,6 +366,7 @@ const search = function () {
 };
 
 const about = () => {
+  $(".mainimg").hide();
   $("#content").html("");
   const main = $("#main");
   const div = $("<div></div>");
@@ -424,6 +428,7 @@ const about = () => {
 };
 
 const contact = () => {
+  $(".mainimg").hide();
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "200px" });
   const div = $("<div></div>");
@@ -498,12 +503,15 @@ const chart = (elem) => {
 };
 
 const funCpu = () =>{
+  $(".mainimg").hide();
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "50px" });
   const header = $("<h1></h1>")
   header.addClass("h")
   header.text("CPU & Processor")
+  header.css({"margin-top" : "30px" })
   const div1 = $("<div></div>")
+  div1.css("border-bottom", "hidden")
   div1.addClass("special")
   for(let x = 0 ; x <= 3 ; x++){
       const div = $("<div></div>");
@@ -539,12 +547,15 @@ const funCpu = () =>{
 }
 
 const funGpu = () =>{
+  $(".mainimg").hide();
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "50px" });
   const header = $("<h1></h1>")
   header.addClass("h")
-  header.text("CPU & Processor")
+  header.text("Gpu")
+  header.css({"margin-top" : "30px" })
   const div1 = $("<div></div>")
+  div1.css("border-bottom", "hidden")
   div1.addClass("special")
   for(let x = 4 ; x <= 7 ; x++){
       const div = $("<div></div>");
@@ -578,15 +589,19 @@ const funGpu = () =>{
 }
 
 const funLaptop = () =>{
+  $(".mainimg").hide();
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "50px" });
   const header = $("<h1></h1>")
   header.addClass("h")
-  header.text("CPU & Processor")
+  header.text("Laptops")
+  header.css({"margin-top" : "30px" })
   const div1 = $("<div></div>")
+  div1.css("border-bottom", "hidden")
   div1.addClass("special")
   for(let x = 8 ; x <= 11 ; x++){
       const div = $("<div></div>");
+      
       div.addClass("s");
       const img = $("<img>");
       img.addClass("img");
@@ -619,10 +634,13 @@ const funLaptop = () =>{
 const funKeyboard = () =>{
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "50px" });
+  $(".mainimg").hide();
   const header = $("<h1></h1>")
   header.addClass("h")
-  header.text("CPU & Processor")
+  header.text("Keyboard")
+  header.css({"margin-top" : "30px" })
   const div1 = $("<div></div>")
+  div1.css("border-bottom", "hidden")
   div1.addClass("special")
   for(let x = 12 ; x <= 15 ; x++){
       const div = $("<div></div>");
