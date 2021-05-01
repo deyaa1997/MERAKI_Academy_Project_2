@@ -52,6 +52,7 @@ const home = () => {
   $("#content").css({ gap: "30px" });
   const h1 = $("<h1></h1>");
   h1.addClass("h");
+  h1.css("margin-top" , "70px")
   h1.text("-Special Products-");
   const div1 = $("<div></div>");
   div1.addClass("special");
@@ -313,7 +314,6 @@ const addComing = () => {
 };
 
 const search = function () {
-  $(".mainimg").hide();
   const arr = [];
   const ind = [];
   key.forEach((elem, index) => {
@@ -323,46 +323,52 @@ const search = function () {
       ind.push(index);
     }
   });
-  $("#content").html("");
-  $("#content").show();
-  $("#content").css("height", "200px");
-  const main = $("#main");
-  const div = $("<div></div>");
-  div.addClass("searchBar");
-  const result = $("<h1></h1>");
-  result.html("The Result Search Is :-");
-  div.append(result);
-  const divRes = $("<div></div>");
-  divRes.addClass("results");
-  const divImg = $("<div></div>");
-  divImg.addClass("sortImg");
-  ind.forEach((elem) => {
-    const img = $("<img>");
-    img.addClass("img1");
-    if (elem === 3) {
-      img.attr("src", "key img/" + elem + ".jpeg");
-    } else {
-      img.attr("src", "key img/" + elem + ".jpg");
-    }
-    img.on("click", () => disc(elem));
-    img.css("cursor", "pointer");
-    divImg.append(img);
-  });
-  const divP = $("<div></div>");
-  divP.addClass("sortP");
-  arr.forEach((elem, ind) => {
-    const p = $("<p></p>");
-    p.text(elem);
-    p.addClass("p1");
-    p.on("click", () => disc(ind));
-    p.css("cursor", "pointer");
-    divP.append(p);
-  });
-  divRes.append(divImg);
-  divRes.append(divP);
-  div.append(divRes);
-  $("#content").append(div);
-  $(".h1header").on("click", () => home());
+  if (arr.length >= 1) {
+    $(".mainimg").hide();
+    $("#content").html("");
+    $("#content").show();
+    $("#content").css("height", "200px");
+    const main = $("#main");
+    const div = $("<div></div>");
+    div.addClass("searchBar");
+    div.css("margin", "40px");
+    const result = $("<h1></h1>");
+    result.html("The Result Search Is :-");
+    div.append(result);
+    const divRes = $("<div></div>");
+    divRes.addClass("results");
+    const divImg = $("<div></div>");
+    divImg.addClass("sortImg");
+    ind.forEach((elem) => {
+      const img = $("<img>");
+      img.addClass("img1");
+      if (elem === 3) {
+        img.attr("src", "key img/" + elem + ".jpeg");
+      } else {
+        img.attr("src", "key img/" + elem + ".jpg");
+      }
+      img.on("click", () => disc(elem));
+      img.css("cursor", "pointer");
+      divImg.append(img);
+    });
+    const divP = $("<div></div>");
+    divP.addClass("sortP");
+    arr.forEach((elem, ind) => {
+      const p = $("<p></p>");
+      p.text(elem);
+      p.addClass("p1");
+      p.on("click", () => disc(ind));
+      p.css("cursor", "pointer");
+      divP.append(p);
+    });
+    divRes.append(divImg);
+    divRes.append(divP);
+    div.append(divRes);
+    $("#content").append(div);
+    $(".h1header").on("click", () => home());
+  } else {
+    alert("Please Enter The Correct Word");
+  }
 };
 
 const about = () => {
@@ -484,8 +490,24 @@ const contact = () => {
   $(".h1header").on("click", () => home());
 };
 
-const chart = (elem) => {
-  if (elem.toLowerCase().search($(".insearch").val().toLowerCase()) >= 0) {
+const cart = () => {
+  $(".mainimg").hide();
+  $("#content").html("");
+  $("#content").css({ height: "200px", gap: "200px" });
+  const div = $("<div></div>");
+  const about = $("<h1></h1>");
+  about.html("-Shopping Cart");
+  about.css("color", "rgb(177,22,22)");
+  div.append(about);
+  const Overview = $("<h1></h1>");
+  Overview.html("*Your shopping cart is empty!");
+  Overview.css("margin-top" , "40px")
+  Overview.addClass("aboutH");
+  div.append(Overview);
+  div.css("margin" , "40px")
+  $("#content").append(div)
+
+  /*if (elem.toLowerCase().search($(".insearch").val().toLowerCase()) >= 0) {
     if (typeof Storage !== "undefined") {
       // Store
       localStorage.setItem("f", elem);
@@ -499,176 +521,176 @@ const chart = (elem) => {
   }
   let x = localStorage.getItem("f") + "-";
 
-  console.log(x);
+  console.log(x);*/
 };
 
-const funCpu = () =>{
+const funCpu = () => {
   $(".mainimg").hide();
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "50px" });
-  const header = $("<h1></h1>")
-  header.addClass("h")
-  header.text("CPU & Processor")
-  header.css({"margin-top" : "30px" })
-  const div1 = $("<div></div>")
-  div1.css("border-bottom", "hidden")
-  div1.addClass("special")
-  for(let x = 0 ; x <= 3 ; x++){
-      const div = $("<div></div>");
-      div.addClass("s");
-      const img = $("<img>");
-      img.addClass("img");
-      if (x === 3 ) {
-        img.attr("src", "key img/" + x + ".jpeg");
-        div.css("border-right", "hidden");
-      } else {
-        img.attr("src", "key img/" + x + ".jpg");
-      }
-      img.on("click", () => disc(x));
-      img.css("cursor", "pointer");
-      div.append(img);
-      const p = $("<p></p>");
-      p.text(key[x]);
-      p.addClass("p");
-      const btn = $("<button></button>");
-      btn.addClass("contentbtn");
-      btn.append(p);
-      div.append(btn);
-      btn.on("click", () => disc(x));
-      const price = $("<h2></h2>");
-      price.addClass("pr");
-      price.text(pricearr[x] + " JOD");
-      div.append(price);
-      div1.append(div);
-    }
-    $("#content").append(header)
-    $("#content").append(div1)
-    $(".h1header").on("click", () => home());
-}
-
-const funGpu = () =>{
-  $(".mainimg").hide();
-  $("#content").html("");
-  $("#content").css({ height: "200px", gap: "50px" });
-  const header = $("<h1></h1>")
-  header.addClass("h")
-  header.text("Gpu")
-  header.css({"margin-top" : "30px" })
-  const div1 = $("<div></div>")
-  div1.css("border-bottom", "hidden")
-  div1.addClass("special")
-  for(let x = 4 ; x <= 7 ; x++){
-      const div = $("<div></div>");
-      div.addClass("s");
-      const img = $("<img>");
-      img.addClass("img");
-      if (x === 7 ) {
-        div.css("border-right", "hidden");
-      } 
+  const header = $("<h1></h1>");
+  header.addClass("h");
+  header.text("CPU & Processor");
+  header.css({ "margin-top": "30px" });
+  const div1 = $("<div></div>");
+  div1.css("border-bottom", "hidden");
+  div1.addClass("special");
+  for (let x = 0; x <= 3; x++) {
+    const div = $("<div></div>");
+    div.addClass("s");
+    const img = $("<img>");
+    img.addClass("img");
+    if (x === 3) {
+      img.attr("src", "key img/" + x + ".jpeg");
+      div.css("border-right", "hidden");
+    } else {
       img.attr("src", "key img/" + x + ".jpg");
-      img.on("click", () => disc(x));
-      img.css("cursor", "pointer");
-      div.append(img);
-      const p = $("<p></p>");
-      p.text(key[x]);
-      p.addClass("p");
-      const btn = $("<button></button>");
-      btn.addClass("contentbtn");
-      btn.append(p);
-      div.append(btn);
-      btn.on("click", () => disc(x));
-      const price = $("<h2></h2>");
-      price.addClass("pr");
-      price.text(pricearr[x] + " JOD");
-      div.append(price);
-      div1.append(div);
     }
-    $("#content").append(header)
-    $("#content").append(div1)
-    $(".h1header").on("click", () => home());
-}
+    img.on("click", () => disc(x));
+    img.css("cursor", "pointer");
+    div.append(img);
+    const p = $("<p></p>");
+    p.text(key[x]);
+    p.addClass("p");
+    const btn = $("<button></button>");
+    btn.addClass("contentbtn");
+    btn.append(p);
+    div.append(btn);
+    btn.on("click", () => disc(x));
+    const price = $("<h2></h2>");
+    price.addClass("pr");
+    price.text(pricearr[x] + " JOD");
+    div.append(price);
+    div1.append(div);
+  }
+  $("#content").append(header);
+  $("#content").append(div1);
+  $(".h1header").on("click", () => home());
+};
 
-const funLaptop = () =>{
+const funGpu = () => {
   $(".mainimg").hide();
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "50px" });
-  const header = $("<h1></h1>")
-  header.addClass("h")
-  header.text("Laptops")
-  header.css({"margin-top" : "30px" })
-  const div1 = $("<div></div>")
-  div1.css("border-bottom", "hidden")
-  div1.addClass("special")
-  for(let x = 8 ; x <= 11 ; x++){
-      const div = $("<div></div>");
-      
-      div.addClass("s");
-      const img = $("<img>");
-      img.addClass("img");
-      if (x === 11 ) {
-        div.css("border-right", "hidden");
-      } 
-      img.attr("src", "key img/" + x + ".jpg");
-      img.on("click", () => disc(x));
-      img.css("cursor", "pointer");
-      div.append(img);
-      const p = $("<p></p>");
-      p.text(key[x]);
-      p.addClass("p");
-      const btn = $("<button></button>");
-      btn.addClass("contentbtn");
-      btn.append(p);
-      div.append(btn);
-      btn.on("click", () => disc(x));
-      const price = $("<h2></h2>");
-      price.addClass("pr");
-      price.text(pricearr[x] + " JOD");
-      div.append(price);
-      div1.append(div);
+  const header = $("<h1></h1>");
+  header.addClass("h");
+  header.text("Gpu");
+  header.css({ "margin-top": "30px" });
+  const div1 = $("<div></div>");
+  div1.css("border-bottom", "hidden");
+  div1.addClass("special");
+  for (let x = 4; x <= 7; x++) {
+    const div = $("<div></div>");
+    div.addClass("s");
+    const img = $("<img>");
+    img.addClass("img");
+    if (x === 7) {
+      div.css("border-right", "hidden");
     }
-    $("#content").append(header)
-    $("#content").append(div1)
-    $(".h1header").on("click", () => home());
-}
+    img.attr("src", "key img/" + x + ".jpg");
+    img.on("click", () => disc(x));
+    img.css("cursor", "pointer");
+    div.append(img);
+    const p = $("<p></p>");
+    p.text(key[x]);
+    p.addClass("p");
+    const btn = $("<button></button>");
+    btn.addClass("contentbtn");
+    btn.append(p);
+    div.append(btn);
+    btn.on("click", () => disc(x));
+    const price = $("<h2></h2>");
+    price.addClass("pr");
+    price.text(pricearr[x] + " JOD");
+    div.append(price);
+    div1.append(div);
+  }
+  $("#content").append(header);
+  $("#content").append(div1);
+  $(".h1header").on("click", () => home());
+};
 
-const funKeyboard = () =>{
+const funLaptop = () => {
+  $(".mainimg").hide();
+  $("#content").html("");
+  $("#content").css({ height: "200px", gap: "50px" });
+  const header = $("<h1></h1>");
+  header.addClass("h");
+  header.text("Laptops");
+  header.css({ "margin-top": "30px" });
+  const div1 = $("<div></div>");
+  div1.css("border-bottom", "hidden");
+  div1.addClass("special");
+  for (let x = 8; x <= 11; x++) {
+    const div = $("<div></div>");
+
+    div.addClass("s");
+    const img = $("<img>");
+    img.addClass("img");
+    if (x === 11) {
+      div.css("border-right", "hidden");
+    }
+    img.attr("src", "key img/" + x + ".jpg");
+    img.on("click", () => disc(x));
+    img.css("cursor", "pointer");
+    div.append(img);
+    const p = $("<p></p>");
+    p.text(key[x]);
+    p.addClass("p");
+    const btn = $("<button></button>");
+    btn.addClass("contentbtn");
+    btn.append(p);
+    div.append(btn);
+    btn.on("click", () => disc(x));
+    const price = $("<h2></h2>");
+    price.addClass("pr");
+    price.text(pricearr[x] + " JOD");
+    div.append(price);
+    div1.append(div);
+  }
+  $("#content").append(header);
+  $("#content").append(div1);
+  $(".h1header").on("click", () => home());
+};
+
+const funKeyboard = () => {
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "50px" });
   $(".mainimg").hide();
-  const header = $("<h1></h1>")
-  header.addClass("h")
-  header.text("Keyboard")
-  header.css({"margin-top" : "30px" })
-  const div1 = $("<div></div>")
-  div1.css("border-bottom", "hidden")
-  div1.addClass("special")
-  for(let x = 12 ; x <= 15 ; x++){
-      const div = $("<div></div>");
-      div.addClass("s");
-      const img = $("<img>");
-      img.addClass("img");
-      if (x === 15 ) {
-        div.css("border-right", "hidden");
-      } 
-      img.attr("src", "key img/" + x + ".jpg");
-      img.on("click", () => disc(x));
-      img.css("cursor", "pointer");
-      div.append(img);
-      const p = $("<p></p>");
-      p.text(key[x]);
-      p.addClass("p");
-      const btn = $("<button></button>");
-      btn.addClass("contentbtn");
-      btn.append(p);
-      div.append(btn);
-      btn.on("click", () => disc(x));
-      const price = $("<h2></h2>");
-      price.addClass("pr");
-      price.text(pricearr[x] + " JOD");
-      div.append(price);
-      div1.append(div);
+  const header = $("<h1></h1>");
+  header.addClass("h");
+  header.text("Keyboard");
+  header.css({ "margin-top": "30px" });
+  const div1 = $("<div></div>");
+  div1.css("border-bottom", "hidden");
+  div1.addClass("special");
+  for (let x = 12; x <= 15; x++) {
+    const div = $("<div></div>");
+    div.addClass("s");
+    const img = $("<img>");
+    img.addClass("img");
+    if (x === 15) {
+      div.css("border-right", "hidden");
     }
-    $("#content").append(header)
-    $("#content").append(div1)
-    $(".h1header").on("click", () => home());
-}
+    img.attr("src", "key img/" + x + ".jpg");
+    img.on("click", () => disc(x));
+    img.css("cursor", "pointer");
+    div.append(img);
+    const p = $("<p></p>");
+    p.text(key[x]);
+    p.addClass("p");
+    const btn = $("<button></button>");
+    btn.addClass("contentbtn");
+    btn.append(p);
+    div.append(btn);
+    btn.on("click", () => disc(x));
+    const price = $("<h2></h2>");
+    price.addClass("pr");
+    price.text(pricearr[x] + " JOD");
+    div.append(price);
+    div1.append(div);
+  }
+  $("#content").append(header);
+  $("#content").append(div1);
+  $(".h1header").on("click", () => home());
+};
