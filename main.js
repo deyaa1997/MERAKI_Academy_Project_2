@@ -48,7 +48,29 @@ const pricearr = [
 ];
 const save = JSON.parse(localStorage.getItem("save1")) || []
 
-
+const login = () => {
+  $(".mainimg").hide();
+  $("#content").html("");
+  $("#content").css({ "height": "200px" , "margin" :"40px" });
+  const h1 = $("<h1></h1>")
+  h1.css("color" , "rgb(177,22,22)")
+  h1.text("Account Login")
+  const div = $("<div></div>")
+  div.addClass("login")
+  const divLeft = $("<div></div>")
+  divLeft.addClass("loginLeft")
+  const h2 = $("<h2></h2>")
+  h2.css("color" , "rgb(51, 51, 51)")
+  h2.text("Welcome To The Eagle")
+  const p = $("<p></p>")
+  p.css({"width" : "550px" ,   "color": "rgb(0, 0, 0)",  "line-height": "1.6",})
+  p.text("By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.")
+  divLeft.append(h2)
+  divLeft.append(p)
+  div.append(divLeft)
+  $("#content").append(h1)
+  $("#content").append(div)
+}
 
 
 const home = () => {
@@ -537,10 +559,9 @@ const cart = () => {
   $("#content").css({ height: "200px", gap: "200px" });
   let sum = 0
   console.log("save inside cart", save)
-  console.log(save)
   const div = $("<div></div>");
   const about = $("<h1></h1>");
-  about.html("-Shopping Cart");
+  about.html("-Shopping Cart :-");
   about.css("color", "rgb(177,22,22)");
   div.append(about);
   if (save.length === 0) {
@@ -604,21 +625,6 @@ const cart = () => {
   $("#content").append(div);
   $(".h1header").on("click", () => home());
 
-  /*if (elem.toLowerCase().search($(".insearch").val().toLowerCase()) >= 0) {
-    if (typeof Storage !== "undefined") {
-      // Store
-      localStorage.setItem("f", elem);
-      // Retrieve
-      $(".test").html($(".test").html() + localStorage.getItem("f") + "-");
-      // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-    } else {
-      document.getElementById("result").innerHTML =
-        "Sorry, your browser does not support Web Storage...";
-    }
-  }
-  let x = localStorage.getItem("f") + "-";
-
-  console.log(x);*/
 };
 
 const funCpu = () => {
