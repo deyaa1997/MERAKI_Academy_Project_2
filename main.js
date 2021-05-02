@@ -51,10 +51,16 @@ const save = JSON.parse(localStorage.getItem("save1")) || []
 const login = () => {
   $(".mainimg").hide();
   $("#content").html("");
-  $("#content").css({ "height": "200px" , "margin" :"40px" });
+  $("#content").css({ "height": "200px" , "margin" :"40px" , "gap" : "0px" });
   const h1 = $("<h1></h1>")
   h1.css("color" , "rgb(177,22,22)")
   h1.text("Account Login")
+  const alert = $("<div></div>")
+  alert.addClass("alert")
+  const pAlert = $("<p></p>")
+  pAlert.css({"width" : "400px" ,   "color": "rgb(177,22,22)", "margin-left" : "20px" })
+  pAlert.text("Warning: No match for E-Mail Address and/or Password.")
+  alert.append(pAlert)
   const div = $("<div></div>")
   div.addClass("login")
   const divLeft = $("<div></div>")
@@ -67,9 +73,40 @@ const login = () => {
   p.text("By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.")
   divLeft.append(h2)
   divLeft.append(p)
+  const divRight = $("<div></div>")
+  divRight.addClass("loginRight")
+  const label = $("<label></label><br>")
+  label.attr("for" , "email")
+  label.html("E-Mail Address :-")
+  label.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" , "font-size" : "22px"})
+  const email = $("<input><br>")
+  email.addClass("email")
+  email.attr({"type" : "email" , "name" : "email" , "placeholder" : "Enter Your E-mail"})
+  const label1 = $("<label></label><br>")
+  label1.attr("for" , "pass")
+  label1.html("Password :-")
+  label1.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" ,"font-size" : "22px"})
+  const password = $("<input><br>")
+  password.addClass("pass")
+  password.attr({"type" : "password" , "name" : "pass" , "placeholder" : "Enter Your Password"})
+  const btnLogin = $("<button></button>")
+  btnLogin.addClass("btnLogin")
+  btnLogin.html("Login")
+  const btnRigster = $("<button></button>")
+  btnRigster.addClass("btnRigster")
+  btnRigster.html("Rigster Account")
+  divRight.append(label)
+  divRight.append(email)
+  divRight.append(label1)
+  divRight.append(password)
+  divRight.append(btnLogin)
+  divRight.append(btnRigster)
   div.append(divLeft)
+  div.append(divRight)
   $("#content").append(h1)
+  $("#content").append(alert)
   $("#content").append(div)
+  alert.hide();
 }
 
 
