@@ -4,6 +4,7 @@ const cpu = [
   "Intel Core i5-10400F Comet Lake 6-Cores up to 4.3 GHz 12MB",
   "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB"   , 
 ];
+
 const gpu = [
   "ASUS ROG Strix GeForce RTX 3070 8GB GDDR6 OC Edition",
   "MSI GeForce RTX 3080 SUPRIM X 10G 10GB 320-Bit GDDR6X Video Card",
@@ -45,8 +46,10 @@ const pricearr = [
   39,
   99,
 ];
+const save = JSON.parse(localStorage.getItem("save1")) || []
 
-const save = [];
+
+
 
 const home = () => {
   $(".mainimg").show();
@@ -156,12 +159,15 @@ const disc = (ind) => {
     saveCart(ind)
   });
 };
-
 const saveCart = (q) => {
   if (save.indexOf(q) < 0) {
     save.push(q);
+    console.log(save)
   }
+  localStorage.setItem("save1" , JSON.stringify(save))
+  console.log(save)
 };
+
 
 const addSpecial = () => {
   const special = [];
@@ -524,11 +530,14 @@ const contact = () => {
   $(".h1header").on("click", () => home());
 };
 
+
 const cart = () => {
   $(".mainimg").hide();
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "200px" });
   let sum = 0
+  console.log("save inside cart", save)
+  console.log(save)
   const div = $("<div></div>");
   const about = $("<h1></h1>");
   about.html("-Shopping Cart");
