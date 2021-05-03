@@ -47,8 +47,8 @@ const pricearr = [
   99,
 ];
 const save = JSON.parse(localStorage.getItem("save1")) || []
-const admin = [{id: 0 , email:"deyah.mosa@hotmail.com" , password : "dodo1997"}];
-const user = [];
+const admin = [{id: 0 ,username : "Deyaa Mosa" , email:"deyah.mosa@hotmail.com" , password : "dodo1997"}];
+const user = [{id: 0 ,username : "Deyaa Mosa" , email:"deyah.mosa@gmail.com" , password : "dodo1997"}];
 const status =JSON.parse(localStorage.getItem("status")) || []
 console.log(status)
 
@@ -119,7 +119,12 @@ const login = () => {
   $(".h1header").on("click", () => {
     $("#content").css({"gap" : "0px" , "margin-top" : "0px" })
     home()});
+  
+    btnRigster.on("click" , () => {
+      rigster()})
+
 }
+
 const check = (email, password) => {
   let status1 = false
   admin.forEach((elem,ind) => {
@@ -127,7 +132,7 @@ const check = (email, password) => {
       $(".pAlert").text("Welcome To Your Website")
       $(".alert").show()
       setTimeout(() => {status.push("admin");
-        localStorage.setItem("status" , JSON.stringify(status)); return home()}, 2000); 
+        return home()}, 2000); 
         status1 = true
     }
   })
@@ -136,13 +141,102 @@ const check = (email, password) => {
       $(".pAlert").text("You Are Welcome")
       $(".alert").show()
       setTimeout(() =>{status.push("user");
-        localStorage.setItem("status" , JSON.stringify(status)); return home()}, 2000); 
+          return home()}, 2000); 
         status1 = true
     }
   })
   if (status1 === false){
   $(".pAlert").text("Warning: No match for E-Mail Address and/or Password.")
   $(".alert").show()}
+}
+
+const rigster = () => {
+  $(".mainimg").hide();
+  $("#content").html("");
+  $("#content").css({ "height": "200px" , "margin" :"40px" , "gap" : "0px" });
+  const h1 = $("<h1></h1>")
+  h1.css("color" , "rgb(177,22,22)")
+  h1.text("Account Login")
+  const alert = $("<div></div>")
+  alert.addClass("alert")
+  const pAlert = $("<p></p>")
+  pAlert.addClass("pAlert")
+  pAlert.css({"width" : "400px" ,   "color": "rgb(177,22,22)", "margin-left" : "20px" })
+  alert.append(pAlert)
+  const div = $("<div></div>")
+  div.addClass("login")
+  const divLeft = $("<div></div>")
+  divLeft.addClass("loginLeft")
+  const h2 = $("<h2></h2>")
+  h2.css("color" , "rgb(51, 51, 51)")
+  h2.text("Welcome To The Eagle")
+  const p = $("<p></p>")
+  p.css({"width" : "550px" ,   "color": "rgb(0, 0, 0)",  "line-height": "1.6",})
+  p.text("By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.")
+  divLeft.append(h2)
+  divLeft.append(p)
+  const divRight = $("<div></div>")
+  divRight.addClass("loginRight")
+  const labelFirst = $("<label></label><br>")
+  labelFirst.attr("for" , "first")
+  labelFirst.html("First Name :-")
+  labelFirst.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" , "font-size" : "22px"})
+  const first = $("<input><br>")
+  first.addClass("first")
+  first.attr({"type" : "text" , "name" : "first" , "placeholder" : "Enter Your First Name"})
+  const labelLast = $("<label></label><br>")
+  labelLast.attr("for" , "last")
+  labelLast.html("Last Name :-")
+  labelLast.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" , "font-size" : "22px"})
+  const last = $("<input><br>")
+  last.addClass("last")
+  last.attr({"type" : "text" , "name" : "last" , "placeholder" : "Enter Your Last Name"})
+  const label = $("<label></label><br>")
+  label.attr("for" , "email")
+  label.html("E-Mail Address :-")
+  label.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" , "font-size" : "22px"})
+  const email = $("<input><br>")
+  email.addClass("email")
+  email.attr({"type" : "email" , "name" : "email" , "placeholder" : "Enter Your E-mail"})
+  const label1 = $("<label></label><br>")
+  label1.attr("for" , "pass")
+  label1.html("Password :-")
+  label1.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" ,"font-size" : "22px"})
+  const password = $("<input><br>")
+  password.addClass("pass")
+  password.attr({"type" : "password" , "name" : "pass" , "placeholder" : "Enter Your Password"})
+  const btnLogin = $("<button></button>")
+  btnLogin.addClass("btnLogin")
+  btnLogin.html("Login")
+  const btnRigster = $("<button></button>")
+  btnRigster.addClass("btnRigster")
+  btnRigster.html("Rigster Account")
+  divRight.append(labelFirst)
+  divRight.append(first)
+  divRight.append(labelLast)
+  divRight.append(last)
+  divRight.append(label)
+  divRight.append(email)
+  divRight.append(label1)
+  divRight.append(password)
+  divRight.append(btnLogin)
+  divRight.append(btnRigster)
+  btnLogin.hide();
+  div.append(divLeft)
+  div.append(divRight)
+  $("#content").append(h1)
+  $("#content").append(alert)
+  $("#content").append(div)
+  alert.hide();
+  btnRigster.on("click" , () => {
+    const fir = first.val();
+    const las = last.val();
+    const em = email.val();
+    const pas = password.val()
+    check(em , pas)})
+  $(".h1header").on("click", () => {
+    $("#content").css({"gap" : "0px" , "margin-top" : "0px" })
+    home()});
 }
 
 
