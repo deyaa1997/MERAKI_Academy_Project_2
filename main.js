@@ -47,7 +47,7 @@ const pricearr = [
   99,
 ];
 const save = JSON.parse(localStorage.getItem("save1")) || [];
-const admin = [
+const admin =JSON.parse(localStorage.getItem("admin")) || [
   {
     id: 0,
     username: "Deyaa Mosa",
@@ -55,7 +55,7 @@ const admin = [
     password: "dodo1997",
   },
 ];
-const user = [
+const user =JSON.parse(localStorage.getItem("user")) || [
   {
     id: 0,
     username: "Deyaa Mosa",
@@ -63,7 +63,7 @@ const user = [
     password: "dodo1997",
   },
 ];
-const status = JSON.parse(localStorage.getItem("status")) || [];
+const status =  [];
 console.log(status);
 
 const login = () => {
@@ -170,6 +170,9 @@ const check = (email, password) => {
       $(".pAlert").text("Welcome To Your Website");
       $(".alert").show();
       setTimeout(() => {
+        if (status.length > 0){
+          status.shift()
+        }
         status.push("admin");
         return home();
       }, 2000);
@@ -181,6 +184,9 @@ const check = (email, password) => {
       $(".pAlert").text("You Are Welcome");
       $(".alert").show();
       setTimeout(() => {
+        if (status.length > 0){
+          status.shift()
+        }
         status.push("user");
         return home();
       }, 2000);
@@ -316,12 +322,10 @@ const rigster = () => {
     const em = email.val();
     const pas = password.val();
     if (email.val().includes("@") && email.val().includes(".com") === true) {
-      console.log("ok");
       $(".pAlert").text("");
       $(".alert").hide();
       aval(fir, las, em, pas);
     } else {
-      console.log("error")
       $(".pAlert").text("Warning:E-Mail  Address Must Contain (@) or (.com).");
       $(".alert").show();
     }
@@ -359,6 +363,7 @@ const aval = (fir, las, em, pas) => {
         email: em,
         password: pas,
       });
+      localStorage.setItem("user", JSON.stringify(user));
       return home();
     }, 2000);
   }
