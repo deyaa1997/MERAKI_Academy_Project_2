@@ -49,6 +49,8 @@ const pricearr = [
 const save = JSON.parse(localStorage.getItem("save1")) || []
 const admin = [{id: 0 , email:"deyah.mosa@hotmail.com" , password : "dodo1997"}];
 const user = [];
+const status =JSON.parse(localStorage.getItem("status")) || []
+console.log(status)
 
 const login = () => {
   $(".mainimg").hide();
@@ -119,29 +121,32 @@ const login = () => {
     home()});
 }
 const check = (email, password) => {
-  let status = false
+  let status1 = false
   admin.forEach((elem,ind) => {
     if (email === elem.email && password === elem.password){
       $(".pAlert").text("Welcome To Your Website")
       $(".alert").show()
-      setTimeout(() => home("admin"), 2000); 
-      status = true
+      setTimeout(() => {status.push("admin");
+        localStorage.setItem("status" , JSON.stringify(status)); return home()}, 2000); 
+        status1 = true
     }
   })
   user.forEach((elem,ind) => {
     if (email === elem.email && password === elem.password){
       $(".pAlert").text("You Are Welcome")
       $(".alert").show()
-      setTimeout(() => home("user"), 2000); 
-      status =true
+      setTimeout(() =>{status.push("user");
+        localStorage.setItem("status" , JSON.stringify(status)); return home()}, 2000); 
+        status1 = true
     }
   })
-  if (status === false){
+  if (status1 === false){
   $(".pAlert").text("Warning: No match for E-Mail Address and/or Password.")
   $(".alert").show()}
 }
 
-const home = (status) => {
+
+const home = () => {
   $(".mainimg").show();
   $("#content").html("");
   $("#content").css({ gap: "30px" , });
@@ -151,7 +156,7 @@ const home = (status) => {
   h1.text("-Special Products-");
   const div1 = $("<div></div>");
   div1.addClass("special");
-  const fun1 = $(`<script>addSpecial(${status})</script>`);
+  const fun1 = $(`<script>addSpecial(${status[0]})</script>`);
   div1.append(fun1);
   $("#content").append(h1);
   $("#content").append(div1);
@@ -160,7 +165,7 @@ const home = (status) => {
   h2.text("-New Products-");
   const div2 = $("<div></div>");
   div2.addClass("new");
-  const fun2 = $(`<script>addNew(${status})</script>`);
+  const fun2 = $(`<script>addNew(${status[0]})</script>`);
   div2.append(fun2);
   $("#content").append(h2);
   $("#content").append(div2);
@@ -169,7 +174,7 @@ const home = (status) => {
   h3.text("-Best reviews-");
   const div3 = $("<div></div>");
   div3.addClass("best");
-  const fun3 = $(`<script>addBest(${status})</script>`);
+  const fun3 = $(`<script>addBest(${status[0]})</script>`);
   div3.append(fun3);
   $("#content").append(h3);
   $("#content").append(div3);
@@ -178,13 +183,13 @@ const home = (status) => {
   h4.text("-Coming Soon-");
   const div4 = $("<div></div>");
   div4.addClass("coming");
-  const fun4 = $(`<script>addComing(${status})</script>`);
+  const fun4 = $(`<script>addComing(${status[0]})</script>`);
   div4.append(fun4);
   $("#content").append(h4);
   $("#content").append(div4);
 };
 
-const disc = (ind , status = "") => {
+const disc = (ind , ) => {
   $(".mainimg").hide();
   $("#content").html("");
   $("#content").css("height", "600px");
@@ -239,7 +244,7 @@ const disc = (ind , status = "") => {
   addToCart.addClass("cart");
   addToCart.html("Add To Cart");
   console.log(status)
-  if (status !== ""){
+  if (status.length !== 0){
     addToCart.show()
   }else{
     addToCart.hide()
