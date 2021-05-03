@@ -46,13 +46,14 @@ const pricearr = [
   39,
   99,
 ];
-const save = JSON.parse(localStorage.getItem("save1")) || [];
+ // const save = JSON.parse(localStorage.getItem("save1")) || [];
 const admin =JSON.parse(localStorage.getItem("admin")) || [
   {
     id: 0,
     username: "Deyaa Mosa",
     email: "deyah.mosa@hotmail.com",
     password: "dodo1997",
+    save: JSON.parse(localStorage.getItem("save1")) || []
   },
 ];
 const user =JSON.parse(localStorage.getItem("user")) || [
@@ -61,11 +62,12 @@ const user =JSON.parse(localStorage.getItem("user")) || [
     username: "Deyaa Mosa",
     email: "deyah.mosa@gmail.com",
     password: "dodo1997",
+    save: JSON.parse(localStorage.getItem("save2")) || []
   },
 ];
 const status =  [];
 console.log(status);
-
+const number = []
 const login = () => {
   $(".mainimg").hide();
   $("#content").html("");
@@ -174,6 +176,11 @@ const check = (email, password) => {
           status.shift()
         }
         status.push("admin");
+        if (number.length > 0){
+          number.shift()
+        }
+        number.push(elem.id);
+        console.log(number)
         return home();
       }, 2000);
       status1 = true;
@@ -188,6 +195,10 @@ const check = (email, password) => {
           status.shift()
         }
         status.push("user");
+        if (number.length > 0){
+          number.shift()
+        }
+        number.push(elem.id);
         return home();
       }, 2000);
       status1 = true;
@@ -198,6 +209,7 @@ const check = (email, password) => {
     $(".alert").show();
   }
 };
+
 
 const rigster = () => {
   $(".mainimg").hide();
@@ -467,6 +479,7 @@ const disc = (ind) => {
   addToCart.addClass("cart");
   addToCart.html("Add To Cart");
   console.log(status);
+  console.log(number);
   if (status.length !== 0) {
     addToCart.show();
   } else {
@@ -484,12 +497,17 @@ const disc = (ind) => {
   });
 };
 const saveCart = (q) => {
-  if (save.indexOf(q) < 0) {
-    save.push(q);
-    console.log(save);
-  }
-  localStorage.setItem("save1", JSON.stringify(save));
-  console.log(save);
+  if (status[0] === "admin"){
+  if (admin[number[0]].save.indexOf(q) < 0) {
+    admin[number[0]].save.push(q);
+  }}
+  if (status[0] === "user"){
+  if (user[number[0]].save.indexOf(q) < 0) {
+    user[number[0]].save.push(q);
+    console.log(user[number[0]].save);
+  }}
+  localStorage.setItem("save1", JSON.stringify(admin[number[0]].save));
+  localStorage.setItem("save2", JSON.stringify(user[number[0]].save));
 };
 
 const addSpecial = (status) => {
@@ -842,17 +860,20 @@ const contact = () => {
 };
 
 const cart = () => {
+  console.log(status)
+  console.log(number)
+
   $(".mainimg").hide();
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "200px" });
   let sum = 0;
-  console.log("save inside cart", save);
   const div = $("<div></div>");
+  div.addClass("div")
   const about = $("<h1></h1>");
   about.html("-Shopping Cart :-");
   about.css("color", "rgb(177,22,22)");
   div.append(about);
-  if (save.length === 0) {
+  if (status[0] === "admin"){if (admin[number[0]].save.length === 0) {
     const Overview = $("<h1></h1>");
     Overview.html("*Your shopping cart is empty!");
     Overview.css("margin-top", "40px");
@@ -866,7 +887,7 @@ const cart = () => {
     divRes.addClass("results");
     const divImg = $("<div></div>");
     divImg.addClass("sortImg");
-    save.forEach((elem) => {
+    admin[number[0]].save.forEach((elem) => {
       const img = $("<img>");
       img.addClass("img1");
       if (elem === 3) {
@@ -880,7 +901,7 @@ const cart = () => {
     });
     const divP = $("<div></div>");
     divP.addClass("sortP");
-    save.forEach((elem, ind) => {
+    admin[number[0]].save.forEach((elem, ind) => {
       const p = $("<p></p>");
       p.text(key[elem]);
       p.addClass("p1");
@@ -890,7 +911,7 @@ const cart = () => {
     });
     const divPr = $("<div></div>");
     divPr.addClass("sortPr");
-    save.forEach((elem, ind) => {
+    admin[number[0]].save.forEach((elem, ind) => {
       const p2 = $("<p></p>");
       p2.text(pricearr[elem] + " JOD");
       sum += pricearr[elem];
@@ -904,14 +925,73 @@ const cart = () => {
     div1.append(divRes);
     div.append(div1);
   }
-  if (save.length !== 0) {
+  if (admin[number[0]].save.length !== 0) {
     const total = $("<h1></h1>");
     total.html(
-      `- Thank You Your Subtotal For ( ${save.length} items ) Is:  ${sum}  JOD`
+      `- Thank You Your Subtotal For ( ${admin[number[0]].save.length} items ) Is:  ${sum}  JOD`);
+    total.addClass("total");
+    div.append(total);
+  }}
+  if (status[0] === "user"){if (user[number[0]].save.length === 0) {
+    const Overview = $("<h1></h1>");
+    Overview.html("*Your shopping cart is empty!");
+    Overview.css("margin-top", "40px");
+    Overview.addClass("aboutH");
+    div.append(Overview);
+  } else {
+    const div1 = $("<div></div>");
+    div1.addClass("searchBar");
+    div1.css("margin", "40px");
+    const divRes = $("<div></div>");
+    divRes.addClass("results");
+    const divImg = $("<div></div>");
+    divImg.addClass("sortImg");
+    user[number[0]].save.forEach((elem) => {
+      const img = $("<img>");
+      img.addClass("img1");
+      if (elem === 3) {
+        img.attr("src", "key img/" + elem + ".jpeg");
+      } else {
+        img.attr("src", "key img/" + elem + ".jpg");
+      }
+      img.on("click", () => disc(elem));
+      img.css("cursor", "pointer");
+      divImg.append(img);
+    });
+    const divP = $("<div></div>");
+    divP.addClass("sortP");
+    user[number[0]].save.forEach((elem, ind) => {
+      const p = $("<p></p>");
+      p.text(key[elem]);
+      p.addClass("p1");
+      p.on("click", () => disc(elem));
+      p.css("cursor", "pointer");
+      divP.append(p);
+    });
+    const divPr = $("<div></div>");
+    divPr.addClass("sortPr");
+    user[number[0]].save.forEach((elem, ind) => {
+      const p2 = $("<p></p>");
+      p2.text(pricearr[elem] + " JOD");
+      sum += pricearr[elem];
+      p2.addClass("p1");
+      p2.css({ color: "rgb(177,22,22)", "font-weight": "bolder" });
+      divPr.append(p2);
+    });
+    divRes.append(divImg);
+    divRes.append(divP);
+    divRes.append(divPr);
+    div1.append(divRes);
+    div.append(div1);
+  }
+  if (user[number[0]].save.length !== 0) {
+    const total = $("<h1></h1>");
+    total.html(
+      `- Thank You Your Subtotal For ( ${user[number[0]].save.length} items ) Is:  ${sum}  JOD`
     );
     total.addClass("total");
     div.append(total);
-  }
+  }}
   div.css("margin", "40px");
   $("#content").append(div);
   $(".h1header").on("click", () => home());
