@@ -119,27 +119,29 @@ const login = () => {
     home()});
 }
 const check = (email, password) => {
-  
+  let status = false
   admin.forEach((elem,ind) => {
     if (email === elem.email && password === elem.password){
       $(".pAlert").text("Welcome To Your Website")
       $(".alert").show()
-      return home("admin")
+      setTimeout(() => home("admin"), 2000); 
+      status = true
     }
   })
   user.forEach((elem,ind) => {
     if (email === elem.email && password === elem.password){
       $(".pAlert").text("You Are Welcome")
       $(".alert").show()
-      return home("user")
+      setTimeout(() => home("user"), 2000); 
+      status =true
     }
   })
+  if (status === false){
   $(".pAlert").text("Warning: No match for E-Mail Address and/or Password.")
-  $(".alert").show()
+  $(".alert").show()}
 }
 
-const home = (status = "") => {
-
+const home = (status) => {
   $(".mainimg").show();
   $("#content").html("");
   $("#content").css({ gap: "30px" , });
@@ -149,7 +151,7 @@ const home = (status = "") => {
   h1.text("-Special Products-");
   const div1 = $("<div></div>");
   div1.addClass("special");
-  const fun1 = $("<script>addSpecial()</script>");
+  const fun1 = $(`<script>addSpecial(${status})</script>`);
   div1.append(fun1);
   $("#content").append(h1);
   $("#content").append(div1);
@@ -158,7 +160,7 @@ const home = (status = "") => {
   h2.text("-New Products-");
   const div2 = $("<div></div>");
   div2.addClass("new");
-  const fun2 = $("<script>addNew()</script>");
+  const fun2 = $(`<script>addNew(${status})</script>`);
   div2.append(fun2);
   $("#content").append(h2);
   $("#content").append(div2);
@@ -167,7 +169,7 @@ const home = (status = "") => {
   h3.text("-Best reviews-");
   const div3 = $("<div></div>");
   div3.addClass("best");
-  const fun3 = $("<script>addBest()</script>");
+  const fun3 = $(`<script>addBest(${status})</script>`);
   div3.append(fun3);
   $("#content").append(h3);
   $("#content").append(div3);
@@ -176,13 +178,13 @@ const home = (status = "") => {
   h4.text("-Coming Soon-");
   const div4 = $("<div></div>");
   div4.addClass("coming");
-  const fun4 = $("<script>addComing()</script>");
+  const fun4 = $(`<script>addComing(${status})</script>`);
   div4.append(fun4);
   $("#content").append(h4);
   $("#content").append(div4);
 };
 
-const disc = (ind) => {
+const disc = (ind , status = "") => {
   $(".mainimg").hide();
   $("#content").html("");
   $("#content").css("height", "600px");
@@ -236,6 +238,12 @@ const disc = (ind) => {
   const addToCart = $("<button></button>");
   addToCart.addClass("cart");
   addToCart.html("Add To Cart");
+  console.log(status)
+  if (status !== ""){
+    addToCart.show()
+  }else{
+    addToCart.hide()
+  }
   divRight.append(price);
   divRight.append(value);
   divRight.append(addToCart);
@@ -246,6 +254,7 @@ const disc = (ind) => {
     $(".cart").css("background-color" , "green")
     saveCart(ind)
   });
+
 };
 const saveCart = (q) => {
   if (save.indexOf(q) < 0) {
@@ -257,7 +266,7 @@ const saveCart = (q) => {
 };
 
 
-const addSpecial = () => {
+const addSpecial = (status) => {
   const special = [];
   for (let x = 0; x < 5; x++) {
     let ind = Math.ceil(Math.random() * 15);
@@ -285,7 +294,7 @@ const addSpecial = () => {
     } else {
       img.attr("src", "key img/" + special[x + 1] + ".jpg");
     }
-    img.on("click", () => disc(special[x + 1]));
+    img.on("click", () => disc(special[x + 1] , status));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -295,7 +304,7 @@ const addSpecial = () => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc(special[x + 1]));
+    btn.on("click", () => disc(special[x + 1] , status));
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(pricearr[special[x + 1]] + " JOD");
@@ -303,7 +312,7 @@ const addSpecial = () => {
   }
 };
 
-const addNew = () => {
+const addNew = (status) => {
   const special = [
     "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
     "ASUS ROG Strix GeForce RTX 3070 8GB GDDR6 OC Edition",
@@ -331,7 +340,7 @@ const addNew = () => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
-    img.on("click", () => disc(dis[x]));
+    img.on("click", () => disc(dis[x] ,status));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -341,7 +350,7 @@ const addNew = () => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc(dis[x]));
+    btn.on("click", () => disc(dis[x] , status));
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -350,7 +359,7 @@ const addNew = () => {
   }
 };
 
-const addBest = () => {
+const addBest = (status) => {
   const special = [
     key[2],
     key[5],
@@ -377,7 +386,7 @@ const addBest = () => {
     } else {
       img.attr("src", "key img/" + key.indexOf(special[x]) + ".jpg");
     }
-    img.on("click", () => disc(dis[x]));
+    img.on("click", () => disc(dis[x] ,status));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -387,7 +396,7 @@ const addBest = () => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc(dis[x]));
+    btn.on("click", () => disc(dis[x] , status));
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(pricearr[key.indexOf(special[x])] + " JOD");
@@ -396,7 +405,7 @@ const addBest = () => {
   }
 };
 
-const addComing = () => {
+const addComing = (status) => {
   const special = [
     key[1],
     key[7],
@@ -423,7 +432,7 @@ const addComing = () => {
     } else {
       img.attr("src", "key img/" + key.indexOf(special[x]) + ".jpg");
     }
-    img.on("click", () => disc(dis[x]));
+    img.on("click", () => disc(dis[x] ,status));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -433,7 +442,7 @@ const addComing = () => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc(dis[x]));
+    btn.on("click", () => disc(dis[x] ,status));
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(pricearr[key.indexOf(special[x])] + " JOD");
