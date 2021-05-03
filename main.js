@@ -479,10 +479,10 @@ const disc = (ind) => {
   addToCart.addClass("cart");
   addToCart.html("Add To Cart");
   const addrev = $("<i></i>");
-  addrev.css("font-size" , "50px")
+  addrev.css("font-size", "50px");
   addrev.addClass("far fa-heart");
   const addrev1 = $("<i></i>");
-  addrev1.css("font-size" , "50px")
+  addrev1.css("font-size", "50px");
   addrev1.addClass("fas fa-heart");
   const btnrev = $("<button></button>");
   btnrev.addClass("btnrev");
@@ -494,14 +494,23 @@ const disc = (ind) => {
     addToCart.hide();
   }
   if (status[0] === "user") {
-    btnrev.html(addrev)
+    btnrev.html(addrev);
   } else {
-    btnrev.html("")
+    btnrev.html("");
   }
   divRight.append(price);
   divRight.append(value);
   divRight.append(addToCart);
   divRight.append(btnrev);
+  addrev1.click (function(){
+    btnrev.html("")
+    btnrev.html(addrev);
+  })
+  addrev.click( function(){
+    btnrev.html("")
+    btnrev.html(addrev1);
+  })
+
   $("#content").append(div);
   $("#content").append(divRight);
   $(".h1header").on("click", () => home());
@@ -887,6 +896,16 @@ const cart = () => {
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "200px" });
   let sum = 0;
+  if (status.length === 0 ){
+    const div = $("<div></div>");
+    div.addClass("div");
+    const about = $("<h1></h1>");
+    about.html("-Shopping Cart Is Not Availabele You Must Login To Use It-");
+    about.css("color", "rgb(177,22,22)");
+    div.append(about);
+    div.css("margin", "40px");
+    $("#content").append(div);
+  }else{
   const div = $("<div></div>");
   div.addClass("div");
   const about = $("<h1></h1>");
@@ -1023,6 +1042,7 @@ const cart = () => {
   }
   div.css("margin", "40px");
   $("#content").append(div);
+}
   $(".h1header").on("click", () => home());
 };
 
