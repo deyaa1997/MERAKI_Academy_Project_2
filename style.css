@@ -117,7 +117,7 @@
   cursor: pointer;
 }
 
-.chart:hover{
+.chart:hover {
   border-style: groove;
 }
 
@@ -222,10 +222,10 @@
   gap: 50px;
 }
 
-.sortPr{
+.sortPr {
   display: grid;
   justify-content: space-around;
-  gap : 50px;
+  gap: 50px;
   margin-left: 70px;
 }
 
@@ -315,7 +315,7 @@
 .cpubtn {
   opacity: 1;
   animation-name: example;
-  animation-duration: 3s;
+  animation-duration: 2s;
   border-style: ridge;
   border-color: rgb(230, 230, 230);
   cursor: pointer;
@@ -324,7 +324,7 @@
 .gpubtn {
   opacity: 1;
   animation-name: example;
-  animation-duration: 3s;
+  animation-duration: 2s;
   border-style: ridge;
   border-color: rgb(230, 230, 230);
   cursor: pointer;
@@ -333,7 +333,7 @@
 .laptopbtn {
   opacity: 1;
   animation-name: example;
-  animation-duration: 5s;
+  animation-duration: 3s;
   border-style: ridge;
   border-color: rgb(230, 230, 230);
   cursor: pointer;
@@ -342,7 +342,7 @@
 .keyboardbtn {
   opacity: 1;
   animation-name: example;
-  animation-duration: 5s;
+  animation-duration: 3s;
   border-color: rgb(230, 230, 230);
   border-style: ridge;
   cursor: pointer;
@@ -353,13 +353,12 @@
 }
 
 @media all and (max-width: 800px) {
-  body{
+  body {
     min-width: 360px;
   }
   #main {
     grid-template-columns: repeat(1, 100px);
     justify-content: center;
-
 
     /* depending on the condition the parent and child will have the following attributes */
   }
@@ -369,102 +368,102 @@
   }
 }
 
-.cart{
+.cart {
   width: 40%;
   border-radius: 12px;
   border-style: none;
-  background-color: rgb(177,22,22);
-  color: rgb(240,240,240);
+  background-color: rgb(177, 22, 22);
+  color: rgb(240, 240, 240);
   font-size: 24px;
   cursor: pointer;
   height: 70px;
-  margin-top: -70px;
+  margin-top: -35px;
 }
 
-.total{
-  color: rgb(19, 18, 18) ; 
-  border-top-style :solid ;
-  border-top-color:rgb(177,22,22) ;
+.total {
+  color: rgb(19, 18, 18);
+  border-top-style: solid;
+  border-top-color: rgb(177, 22, 22);
   border-top-width: 1px;
   width: 800px;
   text-align: center;
   padding: 30px;
 }
 
-.login{
+.login {
   display: flex;
   gap: 500px;
 }
 
-.alert{
-  border-style:solid;
-  border-color: rgb(177,22,22);
+.alert {
+  border-style: solid;
+  border-color: rgb(177, 22, 22);
   border-width: 1px;
-  background-color: rgb(255,237,229);
+  background-color: rgb(255, 237, 229);
 }
 
-.email{
-  background-color: rgb(243,243,243);
+.email {
+  background-color: rgb(243, 243, 243);
   border-style: none;
   height: 30px;
   width: 300px;
 }
 
-.pass{
-  background-color: rgb(243,243,243);
+.pass {
+  background-color: rgb(243, 243, 243);
   border-style: none;
   height: 30px;
   width: 300px;
 }
 
-.loginRight{
+.loginRight {
   margin-top: 20px;
 }
 
-.RigsterRight{
+.RigsterRight {
   margin-right: 150px;
 }
 
-.btnLogin{
+.btnLogin {
   margin-top: 20px;
   height: 50px;
   width: 70px;
   border-radius: 5px;
   border-style: none;
   margin-right: 10px;
-  background-color: rgb(177,22,22);
+  background-color: rgb(177, 22, 22);
   color: white;
   cursor: pointer;
 }
 
-.btnRigster{
+.btnRigster {
   color: white;
   cursor: pointer;
   margin-top: 20px;
   height: 50px;
   width: 140px;
-  background-color: rgb(177,22,22);
+  background-color: rgb(177, 22, 22);
   border-radius: 5px;
   border-style: none;
 }
 
-.first{
-  background-color: rgb(243,243,243);
+.first {
+  background-color: rgb(243, 243, 243);
   border-style: none;
   height: 30px;
   width: 300px;
 }
 
-.last{
-  background-color: rgb(243,243,243);
+.last {
+  background-color: rgb(243, 243, 243);
   border-style: none;
   height: 30px;
   width: 300px;
 }
 
-.btnrev{
-  width: 60px;
-  height: 60px;
+.btnrev {
+  width: 40px;
+  height: 40px;
   margin-bottom: 40px;
   margin-right: 10px;
   border-style: none;
