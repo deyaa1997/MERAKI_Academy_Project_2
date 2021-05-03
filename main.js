@@ -47,6 +47,8 @@ const pricearr = [
   99,
 ];
 const save = JSON.parse(localStorage.getItem("save1")) || []
+const admin = [{id: 0 , email:"deyah.mosa@hotmail.com" , password : "dodo1997"}];
+const user = [];
 
 const login = () => {
   $(".mainimg").hide();
@@ -58,8 +60,8 @@ const login = () => {
   const alert = $("<div></div>")
   alert.addClass("alert")
   const pAlert = $("<p></p>")
+  pAlert.addClass("pAlert")
   pAlert.css({"width" : "400px" ,   "color": "rgb(177,22,22)", "margin-left" : "20px" })
-  pAlert.text("Warning: No match for E-Mail Address and/or Password.")
   alert.append(pAlert)
   const div = $("<div></div>")
   div.addClass("login")
@@ -107,13 +109,40 @@ const login = () => {
   $("#content").append(alert)
   $("#content").append(div)
   alert.hide();
+  
+  btnLogin.on("click" , () => {
+    const em = email.val();
+    const pas = password.val()
+    check(em , pas)})
+  $(".h1header").on("click", () => {
+    $("#content").css({"gap" : "0px" , "margin-top" : "0px" })
+    home()});
+}
+const check = (email, password) => {
+  
+  admin.forEach((elem,ind) => {
+    if (email === elem.email && password === elem.password){
+      $(".pAlert").text("Welcome To Your Website")
+      $(".alert").show()
+      return home("admin")
+    }
+  })
+  user.forEach((elem,ind) => {
+    if (email === elem.email && password === elem.password){
+      $(".pAlert").text("You Are Welcome")
+      $(".alert").show()
+      return home("user")
+    }
+  })
+  $(".pAlert").text("Warning: No match for E-Mail Address and/or Password.")
+  $(".alert").show()
 }
 
+const home = (status = "") => {
 
-const home = () => {
   $(".mainimg").show();
   $("#content").html("");
-  $("#content").css({ gap: "30px" });
+  $("#content").css({ gap: "30px" , });
   const h1 = $("<h1></h1>");
   h1.addClass("h");
   h1.css("margin-top", "70px");
