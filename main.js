@@ -478,6 +478,14 @@ const disc = (ind) => {
   const addToCart = $("<button></button>");
   addToCart.addClass("cart");
   addToCart.html("Add To Cart");
+  const addrev = $("<i></i>");
+  addrev.css("font-size" , "50px")
+  addrev.addClass("far fa-heart");
+  const addrev1 = $("<i></i>");
+  addrev1.css("font-size" , "50px")
+  addrev1.addClass("fas fa-heart");
+  const btnrev = $("<button></button>");
+  btnrev.addClass("btnrev");
   console.log(status);
   console.log(number);
   if (status.length !== 0) {
@@ -485,9 +493,15 @@ const disc = (ind) => {
   } else {
     addToCart.hide();
   }
+  if (status[0] === "user") {
+    btnrev.html(addrev)
+  } else {
+    btnrev.html("")
+  }
   divRight.append(price);
   divRight.append(value);
   divRight.append(addToCart);
+  divRight.append(btnrev);
   $("#content").append(div);
   $("#content").append(divRight);
   $(".h1header").on("click", () => home());

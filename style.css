@@ -461,3 +461,12 @@
   height: 30px;
   width: 300px;
 }
+
+.btnrev{
+  width: 60px;
+  height: 60px;
+  margin-bottom: 40px;
+  margin-right: 10px;
+  border-style: none;
+  background-color: rgb(220, 220, 220);
+}
