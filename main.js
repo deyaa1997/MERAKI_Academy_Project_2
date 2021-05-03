@@ -2,7 +2,7 @@ const cpu = [
   "AMD RYZEN 5 5600X 6-Core 3.7 GHz (4.6 GHz Max Boost) Tray",
   "AMD RYZEN 5 3600 6-Core 3.6 GHz (4.2 GHz Max Boost)",
   "Intel Core i5-10400F Comet Lake 6-Cores up to 4.3 GHz 12MB",
-  "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB"   , 
+  "Intel Core i7-10700KA Comet Lake 8-Cores up to 5.1 GHz 16MB",
 ];
 
 const gpu = [
@@ -46,204 +46,328 @@ const pricearr = [
   39,
   99,
 ];
-const save = JSON.parse(localStorage.getItem("save1")) || []
-const admin = [{id: 0 ,username : "Deyaa Mosa" , email:"deyah.mosa@hotmail.com" , password : "dodo1997"}];
-const user = [{id: 0 ,username : "Deyaa Mosa" , email:"deyah.mosa@gmail.com" , password : "dodo1997"}];
-const status =JSON.parse(localStorage.getItem("status")) || []
-console.log(status)
+const save = JSON.parse(localStorage.getItem("save1")) || [];
+const admin = [
+  {
+    id: 0,
+    username: "Deyaa Mosa",
+    email: "deyah.mosa@hotmail.com",
+    password: "dodo1997",
+  },
+];
+const user = [
+  {
+    id: 0,
+    username: "Deyaa Mosa",
+    email: "deyah.mosa@gmail.com",
+    password: "dodo1997",
+  },
+];
+const status = JSON.parse(localStorage.getItem("status")) || [];
+console.log(status);
 
 const login = () => {
   $(".mainimg").hide();
   $("#content").html("");
-  $("#content").css({ "height": "200px" , "margin" :"40px" , "gap" : "0px" });
-  const h1 = $("<h1></h1>")
-  h1.css("color" , "rgb(177,22,22)")
-  h1.text("Account Login")
-  const alert = $("<div></div>")
-  alert.addClass("alert")
-  const pAlert = $("<p></p>")
-  pAlert.addClass("pAlert")
-  pAlert.css({"width" : "400px" ,   "color": "rgb(177,22,22)", "margin-left" : "20px" })
-  alert.append(pAlert)
-  const div = $("<div></div>")
-  div.addClass("login")
-  const divLeft = $("<div></div>")
-  divLeft.addClass("loginLeft")
-  const h2 = $("<h2></h2>")
-  h2.css("color" , "rgb(51, 51, 51)")
-  h2.text("Welcome To The Eagle")
-  const p = $("<p></p>")
-  p.css({"width" : "550px" ,   "color": "rgb(0, 0, 0)",  "line-height": "1.6",})
-  p.text("By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.")
-  divLeft.append(h2)
-  divLeft.append(p)
-  const divRight = $("<div></div>")
-  divRight.addClass("loginRight")
-  const label = $("<label></label><br>")
-  label.attr("for" , "email")
-  label.html("E-Mail Address :-")
-  label.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" , "font-size" : "22px"})
-  const email = $("<input><br>")
-  email.addClass("email")
-  email.attr({"type" : "email" , "name" : "email" , "placeholder" : "Enter Your E-mail"})
-  const label1 = $("<label></label><br>")
-  label1.attr("for" , "pass")
-  label1.html("Password :-")
-  label1.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" ,"font-size" : "22px"})
-  const password = $("<input><br>")
-  password.addClass("pass")
-  password.attr({"type" : "password" , "name" : "pass" , "placeholder" : "Enter Your Password"})
-  const btnLogin = $("<button></button>")
-  btnLogin.addClass("btnLogin")
-  btnLogin.html("Login")
-  const btnRigster = $("<button></button>")
-  btnRigster.addClass("btnRigster")
-  btnRigster.html("Rigster Account")
-  divRight.append(label)
-  divRight.append(email)
-  divRight.append(label1)
-  divRight.append(password)
-  divRight.append(btnLogin)
-  divRight.append(btnRigster)
-  div.append(divLeft)
-  div.append(divRight)
-  $("#content").append(h1)
-  $("#content").append(alert)
-  $("#content").append(div)
+  $("#content").css({ height: "200px", margin: "40px", gap: "0px" });
+  const h1 = $("<h1></h1>");
+  h1.css("color", "rgb(177,22,22)");
+  h1.text("Account Login");
+  const alert = $("<div></div>");
+  alert.addClass("alert");
+  const pAlert = $("<p></p>");
+  pAlert.addClass("pAlert");
+  pAlert.css({
+    width: "400px",
+    color: "rgb(177,22,22)",
+    "margin-left": "20px",
+  });
+  alert.append(pAlert);
+  const div = $("<div></div>");
+  div.addClass("login");
+  const divLeft = $("<div></div>");
+  divLeft.addClass("loginLeft");
+  const h2 = $("<h2></h2>");
+  h2.css("color", "rgb(51, 51, 51)");
+  h2.text("Welcome To The Eagle");
+  const p = $("<p></p>");
+  p.css({ width: "550px", color: "rgb(0, 0, 0)", "line-height": "1.6" });
+  p.text(
+    "By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made."
+  );
+  divLeft.append(h2);
+  divLeft.append(p);
+  const divRight = $("<div></div>");
+  divRight.addClass("loginRight");
+  const label = $("<label></label><br>");
+  label.attr("for", "email");
+  label.html("E-Mail Address :-");
+  label.css({
+    color: "rgb(37,37,37)",
+    "font-weight": "900",
+    "font-size": "22px",
+  });
+  const email = $("<input><br>");
+  email.addClass("email");
+  email.attr({
+    type: "email",
+    name: "email",
+    placeholder: "Enter Your E-mail",
+  });
+  const label1 = $("<label></label><br>");
+  label1.attr("for", "pass");
+  label1.html("Password :-");
+  label1.css({
+    color: "rgb(37,37,37)",
+    "font-weight": "900",
+    "font-size": "22px",
+  });
+  const password = $("<input><br>");
+  password.addClass("pass");
+  password.attr({
+    type: "password",
+    name: "pass",
+    placeholder: "Enter Your Password",
+  });
+  const btnLogin = $("<button></button>");
+  btnLogin.addClass("btnLogin");
+  btnLogin.html("Login");
+  const btnRigster = $("<button></button>");
+  btnRigster.addClass("btnRigster");
+  btnRigster.html("Rigster Account");
+  divRight.append(label);
+  divRight.append(email);
+  divRight.append(label1);
+  divRight.append(password);
+  divRight.append(btnLogin);
+  divRight.append(btnRigster);
+  div.append(divLeft);
+  div.append(divRight);
+  $("#content").append(h1);
+  $("#content").append(alert);
+  $("#content").append(div);
   alert.hide();
-  
-  btnLogin.on("click" , () => {
-    const em = email.val();
-    const pas = password.val()
-    check(em , pas)})
-  $(".h1header").on("click", () => {
-    $("#content").css({"gap" : "0px" , "margin-top" : "0px" })
-    home()});
-  
-    btnRigster.on("click" , () => {
-      rigster()})
 
-}
+  btnLogin.on("click", () => {
+    const em = email.val();
+    const pas = password.val();
+    check(em, pas);
+  });
+  $(".h1header").on("click", () => {
+    $("#content").css({ gap: "0px", "margin-top": "0px" });
+    home();
+  });
+
+  btnRigster.on("click", () => {
+    rigster();
+  });
+};
 
 const check = (email, password) => {
-  let status1 = false
-  admin.forEach((elem,ind) => {
-    if (email === elem.email && password === elem.password){
-      $(".pAlert").text("Welcome To Your Website")
-      $(".alert").show()
-      setTimeout(() => {status.push("admin");
-        return home()}, 2000); 
-        status1 = true
+  let status1 = false;
+  admin.forEach((elem, ind) => {
+    if (email === elem.email && password === elem.password) {
+      $(".pAlert").text("Welcome To Your Website");
+      $(".alert").show();
+      setTimeout(() => {
+        status.push("admin");
+        return home();
+      }, 2000);
+      status1 = true;
     }
-  })
-  user.forEach((elem,ind) => {
-    if (email === elem.email && password === elem.password){
-      $(".pAlert").text("You Are Welcome")
-      $(".alert").show()
-      setTimeout(() =>{status.push("user");
-          return home()}, 2000); 
-        status1 = true
+  });
+  user.forEach((elem, ind) => {
+    if (email === elem.email && password === elem.password) {
+      $(".pAlert").text("You Are Welcome");
+      $(".alert").show();
+      setTimeout(() => {
+        status.push("user");
+        return home();
+      }, 2000);
+      status1 = true;
     }
-  })
-  if (status1 === false){
-  $(".pAlert").text("Warning: No match for E-Mail Address and/or Password.")
-  $(".alert").show()}
-}
+  });
+  if (status1 === false) {
+    $(".pAlert").text("Warning: No match for E-Mail Address and/or Password.");
+    $(".alert").show();
+  }
+};
 
 const rigster = () => {
   $(".mainimg").hide();
   $("#content").html("");
-  $("#content").css({ "height": "200px" , "margin" :"40px" , "gap" : "0px" });
-  const h1 = $("<h1></h1>")
-  h1.css("color" , "rgb(177,22,22)")
-  h1.text("Account Login")
-  const alert = $("<div></div>")
-  alert.addClass("alert")
-  const pAlert = $("<p></p>")
-  pAlert.addClass("pAlert")
-  pAlert.css({"width" : "400px" ,   "color": "rgb(177,22,22)", "margin-left" : "20px" })
-  alert.append(pAlert)
-  const div = $("<div></div>")
-  div.addClass("login")
-  const divLeft = $("<div></div>")
-  divLeft.addClass("loginLeft")
-  const h2 = $("<h2></h2>")
-  h2.css("color" , "rgb(51, 51, 51)")
-  h2.text("Welcome To The Eagle")
-  const p = $("<p></p>")
-  p.css({"width" : "550px" ,   "color": "rgb(0, 0, 0)",  "line-height": "1.6",})
-  p.text("By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.")
-  divLeft.append(h2)
-  divLeft.append(p)
-  const divRight = $("<div></div>")
-  divRight.addClass("loginRight")
-  const labelFirst = $("<label></label><br>")
-  labelFirst.attr("for" , "first")
-  labelFirst.html("First Name :-")
-  labelFirst.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" , "font-size" : "22px"})
-  const first = $("<input><br>")
-  first.addClass("first")
-  first.attr({"type" : "text" , "name" : "first" , "placeholder" : "Enter Your First Name"})
-  const labelLast = $("<label></label><br>")
-  labelLast.attr("for" , "last")
-  labelLast.html("Last Name :-")
-  labelLast.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" , "font-size" : "22px"})
-  const last = $("<input><br>")
-  last.addClass("last")
-  last.attr({"type" : "text" , "name" : "last" , "placeholder" : "Enter Your Last Name"})
-  const label = $("<label></label><br>")
-  label.attr("for" , "email")
-  label.html("E-Mail Address :-")
-  label.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" , "font-size" : "22px"})
-  const email = $("<input><br>")
-  email.addClass("email")
-  email.attr({"type" : "email" , "name" : "email" , "placeholder" : "Enter Your E-mail"})
-  const label1 = $("<label></label><br>")
-  label1.attr("for" , "pass")
-  label1.html("Password :-")
-  label1.css({"color" : "rgb(37,37,37)" , "font-weight" : "900" ,"font-size" : "22px"})
-  const password = $("<input><br>")
-  password.addClass("pass")
-  password.attr({"type" : "password" , "name" : "pass" , "placeholder" : "Enter Your Password"})
-  const btnLogin = $("<button></button>")
-  btnLogin.addClass("btnLogin")
-  btnLogin.html("Login")
-  const btnRigster = $("<button></button>")
-  btnRigster.addClass("btnRigster")
-  btnRigster.html("Rigster Account")
-  divRight.append(labelFirst)
-  divRight.append(first)
-  divRight.append(labelLast)
-  divRight.append(last)
-  divRight.append(label)
-  divRight.append(email)
-  divRight.append(label1)
-  divRight.append(password)
-  divRight.append(btnLogin)
-  divRight.append(btnRigster)
+  $("#content").css({ height: "200px", margin: "40px", gap: "0px" });
+  const h1 = $("<h1></h1>");
+  h1.css("color", "rgb(177,22,22)");
+  h1.text("Account Login");
+  const alert = $("<div></div>");
+  alert.addClass("alert");
+  const pAlert = $("<p></p>");
+  pAlert.addClass("pAlert");
+  pAlert.css({
+    width: "400px",
+    color: "rgb(177,22,22)",
+    "margin-left": "20px",
+  });
+  alert.append(pAlert);
+  const div = $("<div></div>");
+  div.addClass("login");
+  const divLeft = $("<div></div>");
+  divLeft.addClass("loginLeft");
+  const h2 = $("<h2></h2>");
+  h2.css("color", "rgb(51, 51, 51)");
+  h2.text("Welcome To The Eagle");
+  const p = $("<p></p>");
+  p.css({ width: "550px", color: "rgb(0, 0, 0)", "line-height": "1.6" });
+  p.text(
+    "By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made."
+  );
+  divLeft.append(h2);
+  divLeft.append(p);
+  const divRight = $("<div></div>");
+  divRight.addClass("loginRight");
+  const labelFirst = $("<label></label><br>");
+  labelFirst.attr("for", "first");
+  labelFirst.html("First Name :-");
+  labelFirst.css({
+    color: "rgb(37,37,37)",
+    "font-weight": "900",
+    "font-size": "22px",
+  });
+  const first = $("<input><br>");
+  first.addClass("first");
+  first.attr({
+    type: "text",
+    name: "first",
+    placeholder: "Enter Your First Name",
+  });
+  const labelLast = $("<label></label><br>");
+  labelLast.attr("for", "last");
+  labelLast.html("Last Name :-");
+  labelLast.css({
+    color: "rgb(37,37,37)",
+    "font-weight": "900",
+    "font-size": "22px",
+  });
+  const last = $("<input><br>");
+  last.addClass("last");
+  last.attr({
+    type: "text",
+    name: "last",
+    placeholder: "Enter Your Last Name",
+  });
+  const label = $("<label></label><br>");
+  label.attr("for", "email");
+  label.html("E-Mail Address :-");
+  label.css({
+    color: "rgb(37,37,37)",
+    "font-weight": "900",
+    "font-size": "22px",
+  });
+  const email = $("<input><br>");
+  email.addClass("email");
+  email.attr({
+    type: "email",
+    name: "email",
+    placeholder: "Enter Your E-mail",
+  });
+  const label1 = $("<label></label><br>");
+  label1.attr("for", "pass");
+  label1.html("Password :-");
+  label1.css({
+    color: "rgb(37,37,37)",
+    "font-weight": "900",
+    "font-size": "22px",
+  });
+  const password = $("<input><br>");
+  password.addClass("pass");
+  password.attr({
+    type: "password",
+    name: "pass",
+    placeholder: "Enter Your Password",
+  });
+  const btnLogin = $("<button></button>");
+  btnLogin.addClass("btnLogin");
+  btnLogin.html("Login");
+  const btnRigster = $("<button></button>");
+  btnRigster.addClass("btnRigster");
+  btnRigster.html("Rigster Account");
+  divRight.append(labelFirst);
+  divRight.append(first);
+  divRight.append(labelLast);
+  divRight.append(last);
+  divRight.append(label);
+  divRight.append(email);
+  divRight.append(label1);
+  divRight.append(password);
+  divRight.append(btnLogin);
+  divRight.append(btnRigster);
   btnLogin.hide();
-  div.append(divLeft)
-  div.append(divRight)
-  $("#content").append(h1)
-  $("#content").append(alert)
-  $("#content").append(div)
+  div.append(divLeft);
+  div.append(divRight);
+  $("#content").append(h1);
+  $("#content").append(alert);
+  $("#content").append(div);
   alert.hide();
-  btnRigster.on("click" , () => {
+  email.on("click", () => {});
+  btnRigster.on("click", () => {
     const fir = first.val();
     const las = last.val();
     const em = email.val();
-    const pas = password.val()
-    check(em , pas)})
+    const pas = password.val();
+    if (email.val().includes("@") && email.val().includes(".com") === true) {
+      console.log("ok");
+      $(".pAlert").text("");
+      $(".alert").hide();
+      aval(fir, las, em, pas);
+    } else {
+      console.log("error")
+      $(".pAlert").text("Warning:E-Mail  Address Must Contain (@) or (.com).");
+      $(".alert").show();
+    }
+  });
   $(".h1header").on("click", () => {
-    $("#content").css({"gap" : "0px" , "margin-top" : "0px" })
-    home()});
-}
+    $("#content").css({ gap: "0px", "margin-top": "0px" });
+    home();
+  });
+};
 
+const aval = (fir, las, em, pas) => {
+  let status1 = true;
+  admin.forEach((elem, ind) => {
+    if (em === elem.email) {
+      $(".pAlert").text("Warning:  E-Mail  Address  Is  Already  Exists.");
+      $(".alert").show();
+      status1 = false;
+    }
+  });
+  user.forEach((elem, ind) => {
+    if (em === elem.email) {
+      $(".pAlert").text("Warning:  E-Mail  Address  Is  Already  Exists.");
+      $(".alert").show();
+      status1 = false;
+    }
+  });
+  if (status1 === true) {
+    $(".pAlert").text("Your Rigster Successfully");
+    $(".alert").show();
+    setTimeout(() => {
+      status.push("user");
+      user.push({
+        id: user.length,
+        username: fir + las,
+        email: em,
+        password: pas,
+      });
+      return home();
+    }, 2000);
+  }
+};
 
 const home = () => {
   $(".mainimg").show();
   $("#content").html("");
-  $("#content").css({ gap: "30px" , });
+  $("#content").css({ gap: "30px" });
   const h1 = $("<h1></h1>");
   h1.addClass("h");
   h1.css("margin-top", "70px");
@@ -283,7 +407,7 @@ const home = () => {
   $("#content").append(div4);
 };
 
-const disc = (ind , ) => {
+const disc = (ind) => {
   $(".mainimg").hide();
   $("#content").html("");
   $("#content").css("height", "600px");
@@ -337,11 +461,11 @@ const disc = (ind , ) => {
   const addToCart = $("<button></button>");
   addToCart.addClass("cart");
   addToCart.html("Add To Cart");
-  console.log(status)
-  if (status.length !== 0){
-    addToCart.show()
-  }else{
-    addToCart.hide()
+  console.log(status);
+  if (status.length !== 0) {
+    addToCart.show();
+  } else {
+    addToCart.hide();
   }
   divRight.append(price);
   divRight.append(value);
@@ -350,20 +474,18 @@ const disc = (ind , ) => {
   $("#content").append(divRight);
   $(".h1header").on("click", () => home());
   addToCart.on("click", () => {
-    $(".cart").css("background-color" , "green")
-    saveCart(ind)
+    $(".cart").css("background-color", "green");
+    saveCart(ind);
   });
-
 };
 const saveCart = (q) => {
   if (save.indexOf(q) < 0) {
     save.push(q);
-    console.log(save)
+    console.log(save);
   }
-  localStorage.setItem("save1" , JSON.stringify(save))
-  console.log(save)
+  localStorage.setItem("save1", JSON.stringify(save));
+  console.log(save);
 };
-
 
 const addSpecial = (status) => {
   const special = [];
@@ -393,7 +515,7 @@ const addSpecial = (status) => {
     } else {
       img.attr("src", "key img/" + special[x + 1] + ".jpg");
     }
-    img.on("click", () => disc(special[x + 1] , status));
+    img.on("click", () => disc(special[x + 1], status));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -403,7 +525,7 @@ const addSpecial = (status) => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc(special[x + 1] , status));
+    btn.on("click", () => disc(special[x + 1], status));
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(pricearr[special[x + 1]] + " JOD");
@@ -439,7 +561,7 @@ const addNew = (status) => {
     } else {
       img.attr("src", "images/" + x + ".jpg");
     }
-    img.on("click", () => disc(dis[x] ,status));
+    img.on("click", () => disc(dis[x], status));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -449,7 +571,7 @@ const addNew = (status) => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc(dis[x] , status));
+    btn.on("click", () => disc(dis[x], status));
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(priceArr[x]);
@@ -459,13 +581,7 @@ const addNew = (status) => {
 };
 
 const addBest = (status) => {
-  const special = [
-    key[2],
-    key[5],
-    key[10],
-    key[13],
-    key[9],
-  ];
+  const special = [key[2], key[5], key[10], key[13], key[9]];
   const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
   const dis = [];
   for (let z = 0; z < special.length; z++) {
@@ -485,7 +601,7 @@ const addBest = (status) => {
     } else {
       img.attr("src", "key img/" + key.indexOf(special[x]) + ".jpg");
     }
-    img.on("click", () => disc(dis[x] ,status));
+    img.on("click", () => disc(dis[x], status));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -495,7 +611,7 @@ const addBest = (status) => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc(dis[x] , status));
+    btn.on("click", () => disc(dis[x], status));
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(pricearr[key.indexOf(special[x])] + " JOD");
@@ -505,13 +621,7 @@ const addBest = (status) => {
 };
 
 const addComing = (status) => {
-  const special = [
-    key[1],
-    key[7],
-    key[6],
-    key[15],
-    key[11],
-  ];
+  const special = [key[1], key[7], key[6], key[15], key[11]];
   const priceArr = ["300 JOD", "1200 JOD", "975 JOD", "70 JOD", "360 JOD"];
   const dis = [];
   for (let z = 0; z < special.length; z++) {
@@ -531,7 +641,7 @@ const addComing = (status) => {
     } else {
       img.attr("src", "key img/" + key.indexOf(special[x]) + ".jpg");
     }
-    img.on("click", () => disc(dis[x] ,status));
+    img.on("click", () => disc(dis[x], status));
     img.css("cursor", "pointer");
     div.append(img);
     const p = $("<p></p>");
@@ -541,7 +651,7 @@ const addComing = (status) => {
     btn.addClass("contentbtn");
     btn.append(p);
     div.append(btn);
-    btn.on("click", () => disc(dis[x] ,status));
+    btn.on("click", () => disc(dis[x], status));
     const price = $("<h2></h2>");
     price.addClass("pr");
     price.text(pricearr[key.indexOf(special[x])] + " JOD");
@@ -726,13 +836,12 @@ const contact = () => {
   $(".h1header").on("click", () => home());
 };
 
-
 const cart = () => {
   $(".mainimg").hide();
   $("#content").html("");
   $("#content").css({ height: "200px", gap: "200px" });
-  let sum = 0
-  console.log("save inside cart", save)
+  let sum = 0;
+  console.log("save inside cart", save);
   const div = $("<div></div>");
   const about = $("<h1></h1>");
   about.html("-Shopping Cart :-");
@@ -779,9 +888,9 @@ const cart = () => {
     save.forEach((elem, ind) => {
       const p2 = $("<p></p>");
       p2.text(pricearr[elem] + " JOD");
-      sum += pricearr[elem]
+      sum += pricearr[elem];
       p2.addClass("p1");
-      p2.css({"color" : "rgb(177,22,22)" , "font-weight" : "bolder"})
+      p2.css({ color: "rgb(177,22,22)", "font-weight": "bolder" });
       divPr.append(p2);
     });
     divRes.append(divImg);
@@ -790,15 +899,17 @@ const cart = () => {
     div1.append(divRes);
     div.append(div1);
   }
-  if (save.length !== 0 ){
-  const total = $("<h1></h1>");
-  total.html(`- Thank You Your Subtotal For ( ${save.length} items ) Is:  ${sum}  JOD`);
-  total.addClass("total")
-  div.append(total);}
+  if (save.length !== 0) {
+    const total = $("<h1></h1>");
+    total.html(
+      `- Thank You Your Subtotal For ( ${save.length} items ) Is:  ${sum}  JOD`
+    );
+    total.addClass("total");
+    div.append(total);
+  }
   div.css("margin", "40px");
   $("#content").append(div);
   $(".h1header").on("click", () => home());
-
 };
 
 const funCpu = () => {
