@@ -47,13 +47,13 @@ const pricearr = [
   99,
 ];
  // const save = JSON.parse(localStorage.getItem("save1")) || [];
-const admin =JSON.parse(localStorage.getItem("admin")) || [
+ const admin =JSON.parse(localStorage.getItem("admin")) || [
   {
     id: 0,
     username: "Deyaa Mosa",
     email: "deyah.mosa@hotmail.com",
     password: "dodo1997",
-    save: JSON.parse(localStorage.getItem("save1")) || []
+    save: JSON.parse(localStorage.getItem("save10")) || []
   },
 ];
 const user =JSON.parse(localStorage.getItem("user")) || [
@@ -62,7 +62,7 @@ const user =JSON.parse(localStorage.getItem("user")) || [
     username: "Deyaa Mosa",
     email: "deyah.mosa@gmail.com",
     password: "dodo1997",
-    save: JSON.parse(localStorage.getItem("save2")) || []
+    save: JSON.parse(localStorage.getItem("save0")) || []
   },
 ];
 const status =  [];
@@ -374,6 +374,7 @@ const aval = (fir, las, em, pas) => {
         username: fir + las,
         email: em,
         password: pas,
+        save: []
       });
       localStorage.setItem("user", JSON.stringify(user));
       return home();
@@ -500,14 +501,17 @@ const saveCart = (q) => {
   if (status[0] === "admin"){
   if (admin[number[0]].save.indexOf(q) < 0) {
     admin[number[0]].save.push(q);
-  }}
+  }localStorage.setItem("save10", JSON.stringify(admin[number[0]].save));
+}
   if (status[0] === "user"){
   if (user[number[0]].save.indexOf(q) < 0) {
     user[number[0]].save.push(q);
     console.log(user[number[0]].save);
-  }}
-  localStorage.setItem("save1", JSON.stringify(admin[number[0]].save));
-  localStorage.setItem("save2", JSON.stringify(user[number[0]].save));
+
+  }
+  localStorage.setItem("save" + number[0], JSON.stringify(user[number[0]].save));
+}
+  
 };
 
 const addSpecial = (status) => {
